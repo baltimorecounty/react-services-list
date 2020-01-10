@@ -26,6 +26,8 @@ const configValues = {
   }
 };
 
+setConfig(configValues);
+
 function App() {
   return (
     <div className="App">
