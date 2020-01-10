@@ -19,7 +19,7 @@ jobs:
       - name: npm install, and test
         run: |
           npm ci
-          npm test-and-code-coverage
+          npm run test-and-code-coverage
         env:
           CI: true
       - name: Coveralls
