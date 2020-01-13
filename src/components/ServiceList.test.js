@@ -2,9 +2,9 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { render, wait, within } from "@testing-library/react";
 
-import FilterList from "./FilterList";
-import { GetServices } from "../services/ApiService";
 import React from "react";
+import ServiceList from "./ServiceList";
+import { GetServices as mockGetService } from "../services/ApiService";
 
 // TODO: This import will be used once we have more functionality
 // import userEvent from "@testing-library/user-event";
@@ -12,7 +12,7 @@ import React from "react";
 jest.mock("../services/ApiService");
 
 test("should render a list of services", async () => {
-  GetServices.mockResolvedValueOnce([
+  mockGetService.mockResolvedValueOnce([
     {
       name: "Adopt a Pet",
       url: "https://beta.baltimorecountymd.gov/prototyping/adoption.html",
@@ -36,7 +36,7 @@ test("should render a list of services", async () => {
     }
   ]);
 
-  const { getByText } = render(<FilterList />);
+  const { getByText } = render(<ServiceList />);
 
   // Ensure there is a loading message
   getByText("Loading Baltimore County services...");
