@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom/extend-expect";
 
 import { render, wait, within } from "@testing-library/react";
+import { ServiceList } from "../components/ServiceList";
 
 import FilterList from "./FilterList";
 import React from "react";
@@ -11,7 +12,7 @@ import React from "react";
 jest.mock("../services/Api");
 
 test("should render a list of services", async () => {
-  ServicesList.mockResolvedValueOnce([
+  ServiceList.mockResolvedValueOnce([
     {
       name: "Adopt a Pet",
       url: "https://beta.baltimorecountymd.gov/prototyping/adoption.html",
