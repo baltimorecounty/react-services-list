@@ -1,10 +1,8 @@
+import React from "react";
+import { Config } from "@baltimorecounty/javascript-utilities";
+import ServiceList from "./components/ServiceList";
 import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
 import "./App.css";
-
-import { Config } from "@baltimorecounty/javascript-utilities";
-import React from "react";
-import ServiceList from "./components/ServiceList";
-import logo from "./logo.svg";
 
 const { setConfig } = Config;
 
