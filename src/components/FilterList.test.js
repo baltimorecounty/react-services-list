@@ -1,18 +1,18 @@
 import "@testing-library/jest-dom/extend-expect";
 
 import { render, wait, within } from "@testing-library/react";
-import { ServiceList } from "../components/ServiceList";
 
 import FilterList from "./FilterList";
+import { GetServices } from "../services/ApiService";
 import React from "react";
 
 // TODO: This import will be used once we have more functionality
 // import userEvent from "@testing-library/user-event";
 
-jest.mock("../services/Api");
+jest.mock("../services/ApiService");
 
 test("should render a list of services", async () => {
-  ServiceList.mockResolvedValueOnce([
+  GetServices.mockResolvedValueOnce([
     {
       name: "Adopt a Pet",
       url: "https://beta.baltimorecountymd.gov/prototyping/adoption.html",
