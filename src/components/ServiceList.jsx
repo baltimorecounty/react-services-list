@@ -20,19 +20,17 @@ const ServiceList = () => {
       console.error(error);
     });
 
-  const serviceCard = ({ name, department, url, icon, rank }) => {
-    return (
-      <div>
-        <h3>{name}</h3>
-        <p>{department}</p>
-        <a href={url}>{name}</a>
-      </div>
-      // <Card>
-      //   <CardContent>
-      //   </CardContent>
-      // </Card>
-    );
-  };
+  const serviceCard = ({ name, department, url, icon, rank }) => (
+    <div>
+      <h3>{name}</h3>
+      <p>{department}</p>
+      <a href={url}>{name}</a>
+    </div>
+    // <Card>
+    //   <CardContent>
+    //   </CardContent>
+    // </Card>
+  );
 
   return (
     <div>
