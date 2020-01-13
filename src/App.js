@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { Config } from "@baltimorecounty/javascript-utilities";
 import ServiceList from "./components/ServiceList";
 import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
