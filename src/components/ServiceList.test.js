@@ -36,7 +36,7 @@ test("should render a list of services", async () => {
     }
   ]);
 
-  const { getByText } = render(<ServiceList />);
+  const { getByText, queryAllByText } = render(<ServiceList />);
 
   // Ensure there is a loading message
   getByText("Loading Baltimore County services...");
@@ -47,19 +47,21 @@ test("should render a list of services", async () => {
     getByText(/indicates a most popular service/i);
 
     // Service Links
-    const withinAdoptAPetLink = within(getByText(/adopt a pet/i).closest("a"));
+    const withinAdoptAPetLink = within(
+      queryAllByText(/adopt a pet/i)[0].closest("a")
+    );
     withinAdoptAPetLink.getByText(/animal services/i);
     withinAdoptAPetLink.getByText(
       /adopt a pet is one of baltimore county's most popular services/i
     );
 
     const withinPavilionLink = within(
-      getByText(/pavilion rental/i).closest("a")
+      queryAllByText(/pavilion rental/i)[0].closest("a")
     );
     withinPavilionLink.getByText(/rec and parks/i);
 
     const withinTrashAndRecyclingLink = within(
-      getByText(/trash and recycling/i).closest("a")
+      queryAllByText(/trash and recycling/i)[0].closest("a")
     );
     withinTrashAndRecyclingLink.getByText(/public works/i);
     withinTrashAndRecyclingLink.getByText(
