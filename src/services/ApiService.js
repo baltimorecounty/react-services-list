@@ -20,12 +20,4 @@ const GetServices = () =>
     .get(`${getValue("apiRoot")}/services`)
     .then(({ status, data }) => (status === 200 ? data : []));
 
-/**
- * Get Services Data from SiteExecutive structured content
- */
-const ClearServicesCache = () =>
-  axios
-    .get(`${getValue("apiRoot")}/services/clear`)
-    .then(({ status, data }) => (status === 200 ? data : []));
-
-export { GetStatus, GetServices, ClearServicesCache };
+export { GetStatus, GetServices };
