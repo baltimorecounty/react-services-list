@@ -17,13 +17,23 @@ const compare = (a, b) => {
 };
 
 const ServiceList = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const serviceItems = useServicesList().sort(compare);
 
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
   ) : (
-    <FilterList items={serviceItems} renderItem={ServiceCard} />
+    <div className="container">
+      <div className="row">
+        <div className=" col-md-8 col-sm-12">
+          <div id="dg_main-content">
+            <div className="row">
+              <FilterList items={serviceItems} renderItem={ServiceCard} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
