@@ -10,7 +10,6 @@ const useServices = () => {
     GetServices()
       .then(response => {
         setServiceItems(response);
-        setIsLoading(false);
       })
       .finally(() => {
         setIsLoading(false);
