@@ -44,7 +44,7 @@ test("should render a list of services", async () => {
   // Wait until the service are loaded via ajax
   await wait(() => {
     // Legend for popular services
-    getByText(/indicates a top 20 popular service/i);
+    getByText(/indicates a most popular service/i);
 
     // Service Links
     const withinAdoptAPetLink = within(getByText(/adopt a pet/i).closest("a"));
