@@ -19,11 +19,13 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
       <CardContent>
         <div className="dg_icon-container">
           <i className={icon} aria-hidden="true"></i>
-          <span className="sr-only">
-            {`${name} is one of baltimore county's most popular services`}
-          </span>
+          {rank > 0 ? (
+            <span className="sr-only">
+              {`${name} is one of baltimore county's most popular services`}
+            </span>
+          ) : null}
           <i
-            className={rank ? "fas fa-star" : ""}
+            className={rank > 0 ? "fas fa-star" : ""}
             style={starImg}
             aria-hidden="true"
           />
