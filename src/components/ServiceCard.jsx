@@ -28,7 +28,7 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
         <h3>{name}</h3>
       </CardContent>
       <CardFooter>
-        <h3>{department}</h3>
+        <p>{department}</p>
       </CardFooter>
     </a>
   </Card>

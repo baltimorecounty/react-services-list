@@ -4,9 +4,7 @@ import ServiceCard from "../components/ServiceCard";
 import useServices from "../hooks/useServices";
 
 const ServiceList = () => {
-  const apiResponse = useServices();
-  const serviceItems = apiResponse.serviceItems;
-  const isLoading = apiResponse.isLoading;
+  const { serviceItems = [], isLoading } = useServices();
 
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
