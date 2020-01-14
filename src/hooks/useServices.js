@@ -7,13 +7,17 @@ const useServices = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    GetServices().then(response => {
-      setServiceItems(response);
-      setIsLoading(false);
-    });
+    GetServices()
+      .then(response => {
+        setServiceItems(response);
+        setIsLoading(false);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
-  return [serviceItems, isLoading];
+  return { serviceItems, isLoading };
 };
 
 export default useServices;

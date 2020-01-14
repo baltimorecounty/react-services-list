@@ -5,8 +5,8 @@ import ServiceCard from "../components/ServiceCard";
 
 const ServiceList = () => {
   const apiResponse = useServices();
-  const serviceItems = apiResponse[0];
-  const isLoading = apiResponse[1];
+  const serviceItems = apiResponse.serviceItems;
+  const isLoading = apiResponse.isLoading;
 
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
