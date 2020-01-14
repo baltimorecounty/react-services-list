@@ -14,8 +14,8 @@ let starImg = {
 
 const ServiceCard = ({ name, department, url, icon, rank }) => (
   <div className="d-flex col-lg-3 col-md-6 col-sm-6">
-    <a href={url}>
-      <Card>
+    <Card>
+      <a href={url}>
         <CardContent>
           <div className="dg_icon-container">
             <i className={icon} aria-hidden="true"></i>
@@ -30,8 +30,8 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
         <CardFooter>
           <h3>{department}</h3>
         </CardFooter>
-      </Card>
-    </a>
+      </a>
+    </Card>
   </div>
 );
 
