@@ -13,23 +13,25 @@ let starImg = {
 };
 
 const ServiceCard = ({ name, department, url, icon, rank }) => (
-  <div className="d-flex col-lg-4 col-md-6 col-sm-6">
-    <Card>
-      <CardContent>
-        <div className="dg_icon-container">
-          <i className={icon} aria-hidden="true"></i>
-          <i
-            className={rank ? "fas fa-star" : ""}
-            style={starImg}
-            aria-hidden="true"
-          />
-        </div>
-        <h3>{name}</h3>
-      </CardContent>
-      <CardFooter>
-        <a href={url}> {department}</a>
-      </CardFooter>
-    </Card>
+  <div className="d-flex col-lg-3 col-md-6 col-sm-6">
+    <a href={url}>
+      <Card>
+        <CardContent>
+          <div className="dg_icon-container">
+            <i className={icon} aria-hidden="true"></i>
+            <i
+              className={rank ? "fas fa-star" : ""}
+              style={starImg}
+              aria-hidden="true"
+            />
+          </div>
+          <h3>{name}</h3>
+        </CardContent>
+        <CardFooter>
+          <h3>{department}</h3>
+        </CardFooter>
+      </Card>
+    </a>
   </div>
 );
 

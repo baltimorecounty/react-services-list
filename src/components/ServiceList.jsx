@@ -1,24 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import FilterList from "../components/FilterList";
-import useServicesList from "../hooks/useServicesList";
+import useServices from "../hooks/useServices";
 import ServiceCard from "../components/ServiceCard";
 
-const compare = (a, b) => {
-  const nameA = a.name.toUpperCase();
-  const nameB = b.name.toUpperCase();
-
-  let comparison = 0;
-  if (nameA > nameB) {
-    comparison = 1;
-  } else if (nameA < nameB) {
-    comparison = -1;
-  }
-  return comparison;
-};
-
 const ServiceList = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const serviceItems = useServicesList().sort(compare);
+  const apiResponse = useServices();
+  const serviceItems = apiResponse[0];
+  const isLoading = apiResponse[1];
 
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
