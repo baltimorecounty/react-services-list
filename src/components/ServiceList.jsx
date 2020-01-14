@@ -1,7 +1,7 @@
-import React from "react";
 import FilterList from "../components/FilterList";
-import useServices from "../hooks/useServices";
+import React from "react";
 import ServiceCard from "../components/ServiceCard";
+import useServices from "../hooks/useServices";
 
 const ServiceList = () => {
   const apiResponse = useServices();
@@ -11,14 +11,15 @@ const ServiceList = () => {
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
   ) : (
-    <div className="container">
-      <div className="row">
-        <div id="dg_main-content">
-          <div className="row">
-            <FilterList items={serviceItems} renderItem={ServiceCard} />
+    <div className="row">
+      <FilterList
+        items={serviceItems}
+        renderItem={props => (
+          <div className="d-flex col-lg-3 col-md-6 col-sm-6">
+            <ServiceCard {...props} />
           </div>
-        </div>
-      </div>
+        )}
+      />
     </div>
   );
 };
