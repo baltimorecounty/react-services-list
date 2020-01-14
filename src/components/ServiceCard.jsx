@@ -22,22 +22,20 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
   <Card>
     <a href={url}>
       <CardContent>
-        <div style={container}>
-          <div className="dg_icon-container">
-            <i className={icon} aria-hidden="true"></i>
-            {rank > 0 ? (
-              <span className="sr-only">
-                {`${name} is one of baltimore county's most popular services`}
-              </span>
-            ) : null}
-            <i
-              className={rank > 0 ? "fas fa-star" : ""}
-              style={starImg}
-              aria-hidden="true"
-            />
-          </div>
-          <h3>{name}</h3>
+        <div className="dg_icon-container" style={container}>
+          <i className={icon} aria-hidden="true"></i>
+          {rank > 0 ? (
+            <span className="sr-only">
+              {`${name} is one of baltimore county's most popular services`}
+            </span>
+          ) : null}
+          <i
+            className={rank > 0 ? "fas fa-star" : ""}
+            style={starImg}
+            aria-hidden="true"
+          />
         </div>
+        <h3>{name}</h3>
       </CardContent>
       <CardFooter>
         <p>{department}</p>
