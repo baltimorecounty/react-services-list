@@ -7,7 +7,7 @@ const ServiceList = () => {
   const serviceItems = useServicesList();
 
   const serviceCard = ({ name, department, url, icon, rank }) => (
-    <Card>
+    <Card id={name}>
       <CardContent>
         <h3>{name}</h3>
         <p>{department}</p>
@@ -16,11 +16,7 @@ const ServiceList = () => {
     </Card>
   );
 
-  return (
-    <div>
-      <FilterList items={serviceItems} renderItem={serviceCard} />
-    </div>
-  );
+  return <FilterList items={serviceItems} renderItem={serviceCard} />;
 };
 
 export default ServiceList;

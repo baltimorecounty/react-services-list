@@ -8,8 +8,10 @@ const DefaultItem = ({ serviceName, departmentName }) => (
 );
 
 const FilterList = ({
+  as: As = React.Fragment,
   items = [],
-  renderItem = props => <DefaultItem {...props} />
-}) => console.log(items) || <ul>{items.map(renderItem)}</ul>;
+  renderItem = props => <DefaultItem {...props} />,
+  ...props
+}) => <As {...props}>{items.map(renderItem)}</As>;
 
 export default FilterList;
