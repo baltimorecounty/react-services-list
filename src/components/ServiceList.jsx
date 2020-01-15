@@ -27,13 +27,16 @@ const ServiceList = () => {
     <div>
       <div style={flex}>
         <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
-        <p style={legendText}>-Indicates a top 10 popular service</p>
+        <p style={legendText}>-Indicates a Most Popular Service</p>
       </div>
       <div className="row">
         <FilterList
           items={serviceItems}
           renderItem={props => (
-            <div className="d-flex col-lg-3 col-md-6 col-sm-6">
+            <div
+              key={props.name.replace(/\s/, "-")}
+              className="d-flex col-lg-3 col-md-6 col-sm-6"
+            >
               <ServiceCard {...props} />
             </div>
           )}
