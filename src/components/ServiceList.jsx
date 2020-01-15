@@ -9,7 +9,8 @@ const ServiceList = () => {
   let legendStar = {
     fontSize: "20px",
     color: "gray",
-    textAlign: "left"
+    textAlign: "left",
+    marginTop: "4px"
   };
 
   let legendText = {
@@ -27,7 +28,7 @@ const ServiceList = () => {
     <div>
       <div style={flex}>
         <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
-        <p style={legendText}>-Indicates a top 10 popular service</p>
+        <p style={legendText}>-Indicates a most popular service</p>
       </div>
       <div className="row">
         <FilterList
