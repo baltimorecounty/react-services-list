@@ -27,7 +27,7 @@ const ServiceList = () => {
     <div>
       <div style={flex}>
         <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
-        <p style={legendText}>-Indicates a top 20 popular service</p>
+        <p style={legendText}>-Indicates a top 10 popular service</p>
       </div>
       <div className="row">
         <FilterList
