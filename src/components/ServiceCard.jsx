@@ -10,11 +10,15 @@ let departmentStyle = {
   fontSize: ".9em",
   fontStyle: "italic",
   marginBottom: "0",
+  marginTop: "100px"
+};
+
+let textDecoration = {
   textDecoration: "none"
 };
 
 let starImg = {
-  fontSize: "20px",
+  fontSize: "30px",
   top: "0px",
   right: "0px",
   position: "absolute",
@@ -22,15 +26,20 @@ let starImg = {
 };
 
 let container = {
-  position: "relative"
+  position: "relative",
+  marginBottom: "0px"
+};
+
+let iconStyles = {
+  fontSize: "70px"
 };
 
 const ServiceCard = ({ name, department, url, icon, rank }) => (
   <Card>
-    <a href={url}>
+    <a href={url} style={textDecoration}>
       <CardContent>
         <div className="dg_icon-container" style={container}>
-          <i className={icon} aria-hidden="true"></i>
+          <i className={icon} aria-hidden="true" style={iconStyles}></i>
           {rank > 0 ? (
             <span className="sr-only">
               {`${name} is one of baltimore county's most popular services`}

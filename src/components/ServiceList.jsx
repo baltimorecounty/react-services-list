@@ -7,14 +7,14 @@ const ServiceList = () => {
   const { serviceItems = [], isLoading } = useServices();
 
   let legendStar = {
-    fontSize: "20px",
+    fontSize: "30px",
     color: "gray",
-    textAlign: "left",
-    marginTop: "4px"
+    textAlign: "left"
   };
 
   let legendText = {
-    fontStyle: "italic"
+    fontStyle: "italic",
+    marginLeft: "5px"
   };
 
   let flex = {
