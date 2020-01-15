@@ -13,6 +13,7 @@
   margin-right: 0px;
 }
 .flexItem {
+  flex-wrap: wrap;
   display: flex;
 }
 .legendStar {
@@ -30,18 +31,26 @@ input[type="checkbox"] {
   margin-top: 10px;
   bottom: 1px;
   width: 50px;
+  -webkit-appearance: checkbox;
+  outline: none;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+ .dg_checkbox {
+  line-height: 1.25;
+  display: block;
+  position: relative;
+  min-height: 20px;
+  /* margin-bottom: 10px; */
+  margin-left:10px;
+  padding-left: 40px;
+  clear: left;
+} 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;

@@ -11,9 +11,20 @@ const CheckBox = props => {
           <p className="ltalicText">-Indicates a top 20 popular service</p>
         </div>
         <div className="flexItem">
-        <p className="ltalicText">Sort by: </p>
-          <input name="popularity" type="checkbox" onChange={onChange} />
-          <h4>POPULARITY </h4>
+          <p className="ltalicText">Sort by: </p>
+          <div className="dg_checkbox">
+            <input
+              name="popularity"
+              id="popularity-color-blue"
+              className="dg_checkbox-input"
+              type="checkbox"
+              onChange={onChange}
+            />
+            <label class="dg_label dg_checkbox-label" for="popularity-color-blue">
+              POPULARITY
+            </label>
+            {/* <h4>POPULARITY </h4> */}
+          </div>
         </div>
       </div>
     </React.Fragment>
