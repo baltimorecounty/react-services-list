@@ -1,12 +1,20 @@
 import FilterList from "../components/FilterList";
-import React from "react";
+import React, { useState } from "react";
 import ServiceCard from "../components/ServiceCard";
 import useServices from "../hooks/useServices";
+import CheckBox from './../hooks/CheckBox';
 
-const ServiceList = () => {
+const ServiceList = (props) => {
   const { serviceItems = [], isLoading } = useServices();
-
-  return isLoading ? (
+  const [isChecked, setChecked] = useState(0);
+  console.log('isChecked====:' + isChecked);
+    
+  return(
+    <React.Fragment>
+    <CheckBox
+   onChange={() => setChecked(isChecked? 0 : 1)}
+    />
+   {isLoading ? (
     <p>Loading Baltimore County services...</p>
   ) : (
     <div className="row">
@@ -19,6 +27,8 @@ const ServiceList = () => {
         )}
       />
     </div>
+  )}
+  </React.Fragment>
   );
 };
 

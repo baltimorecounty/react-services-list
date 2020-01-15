@@ -1,6 +1,24 @@
 .App {
   text-align: center;
 }
+fieldset {
+  width: 5px;
+
+}
+.item {
+  display:block;
+  width: 50px;
+  color: blue;
+}
+label {
+  display: inline;
+
+}
+ input[type=checkbox] {
+  display: inline;
+ 
+} 
+
 
 .App-logo {
   height: 40vmin;
