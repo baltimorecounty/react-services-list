@@ -7,7 +7,7 @@ import {
 import React from "react";
 
 let starImg = {
-  fontSize: ".2em",
+  fontSize: "20px",
   top: "0px",
   right: "0px",
   position: "absolute",

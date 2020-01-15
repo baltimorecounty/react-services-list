@@ -1,33 +1,36 @@
 .App {
-  /* text-align: center; */
-}
-.ServiceHeading{
   text-align: center;
 }
-fieldset {
-  width: 5px;
 
+.container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
-.item {
-  display:block;
-  width: 50px;
-  color: blue;
+.flexItem {
+  display: flex;
 }
+.legendStar {
+  font-size: 20px;
+  color: gray;
+}
+.ltalicText {
+  font-style: italic;
+}
+
 label {
   display: inline;
-
 }
- input[type=checkbox] {
-   display: inline; 
-  /* vertical-align: middle; 
-  position: relative;*/
+input[type="checkbox"] {
+  margin-top: 10px;
   bottom: 1px;
-  width:50px;
-/* margin-left: 500px; */
-  background-color:red;
- 
-} 
-
+  width: 50px;
+}
 
 .App-logo {
   height: 40vmin;
