@@ -11,19 +11,23 @@ const ServiceList = () => {
     color: "gray",
     bottom: "20px",
     textAlign: "left",
-    display: "inline-block",
-    width: "100%"
+    display: "inline-block"
   };
 
   let legendText = {
     fontStyle: "italic"
   };
 
+  let flex = {
+    display: "flex",
+    flexDirection: "row"
+  };
+
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
   ) : (
     <div>
-      <div>
+      <div style={flex}>
         <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
         <p style={legendText}>-Indicates a top 20 popular service</p>
       </div>
