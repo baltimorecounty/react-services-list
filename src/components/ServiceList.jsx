@@ -9,8 +9,14 @@ const ServiceList = () => {
   let legendStar = {
     fontSize: "20px",
     color: "gray",
-    "text-align": "left",
+    bottom: "20px",
+    textAlign: "left",
+    display: "inline-block",
     width: "100%"
+  };
+
+  let legendText = {
+    fontStyle: "italic"
   };
 
   return isLoading ? (
@@ -18,12 +24,8 @@ const ServiceList = () => {
   ) : (
     <div>
       <div>
-        <i className="fas fa-star" aria-hidden="true" style={legendStar}>
-          - Indicates a top 20 popular service
-        </i>
-        <span className="sr-only">
-          {`The star indicates a top 20 popular service`}
-        </span>
+        <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
+        <p style={legendText}>-Indicates a top 20 popular service</p>
       </div>
       <div className="row">
         <FilterList

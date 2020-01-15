@@ -6,6 +6,13 @@ import {
 
 import React from "react";
 
+let departmentStyle = {
+  fontSize: ".9em",
+  fontStyle: "italic",
+  marginBottom: "0",
+  textDecoration: "none"
+};
+
 let starImg = {
   fontSize: "20px",
   top: "0px",
@@ -38,7 +45,7 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
         <h3>{name}</h3>
       </CardContent>
       <CardFooter>
-        <p>{department}</p>
+        <p style={departmentStyle}>{department}</p>
       </CardFooter>
     </a>
   </Card>
