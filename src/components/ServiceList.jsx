@@ -9,9 +9,7 @@ const ServiceList = () => {
   let legendStar = {
     fontSize: "20px",
     color: "gray",
-    bottom: "20px",
-    textAlign: "left",
-    display: "inline-block"
+    textAlign: "left"
   };
 
   let legendText = {
