@@ -13,7 +13,7 @@ const CheckBox = props => {
         <div className="flexItem">
         <p className="ltalicText">Sort by: </p>
           <input name="popularity" type="checkbox" onChange={onChange} />
-          <h3>POPULARITY </h3>
+          <h4>POPULARITY </h4>
         </div>
       </div>
     </React.Fragment>
