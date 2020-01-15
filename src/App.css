@@ -1,4 +1,7 @@
 .App {
+  /* text-align: center; */
+}
+.ServiceHeading{
   text-align: center;
 }
 fieldset {
@@ -15,7 +18,13 @@ label {
 
 }
  input[type=checkbox] {
-  display: inline;
+   display: inline; 
+  /* vertical-align: middle; 
+  position: relative;*/
+  bottom: 1px;
+  width:50px;
+/* margin-left: 500px; */
+  background-color:red;
  
 } 
 

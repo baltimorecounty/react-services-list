@@ -4,19 +4,20 @@ const CheckBox = props => {
   const { onChange } = props;
 
   return (
-    //<React.Fragment>
-    <fieldset>
-      <div className="item">
-
-      <input
+  
+    <div>
+   <input
         name="popularity"
         type="checkbox"
         onChange={onChange}
-      />
-      <label for="a">POPULARITY</label>
-      </div>
-      </fieldset>
+      /><label>POPULARITY </label>
+     
+  
+  </div>
 
+ 
+   
+ 
   );
 };
 
