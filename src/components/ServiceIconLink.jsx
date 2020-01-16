@@ -18,7 +18,7 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
     }
     text={name}
     href={url}
-    style={{ position: "relative" }}
+    style={{ position: "relative", display: "block", width: "100%" }}
   >
     <div>
       <p style={ServiceIconLinkDepartmentStyle}>{department}</p>

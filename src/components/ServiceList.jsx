@@ -30,17 +30,19 @@ const ServiceList = () => {
         ></i>
         <p style={legendText}> - Indicates a Most Popular Service</p>
       </div>
-
-      <FilterList
-        items={serviceItems}
-        renderItem={props => (
-          <div style={{ padding: "10px" }}>
-            <div key={props.name.replace(/\s/, "-")} className="dg_item-grid">
+      <div className="row">
+        <FilterList
+          items={serviceItems}
+          renderItem={props => (
+            <div
+              key={props.name.replace(/\s/, "-")}
+              className="d-flex col-lg-3 col-md-6 col-sm-6"
+            >
               <ServiceIconLink {...props} />
             </div>
-          </div>
-        )}
-      />
+          )}
+        />
+      </div>
     </div>
   );
 };
