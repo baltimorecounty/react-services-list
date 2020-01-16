@@ -1,14 +1,21 @@
-import React from "react";
-import { Config } from "@baltimorecounty/javascript-utilities";
-import ServiceList from "./components/ServiceList";
 import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
 import "./App.css";
 
+import { Config } from "@baltimorecounty/javascript-utilities";
+import React from "react";
+import ServiceList from "./components/ServiceList";
+
 const { setConfig } = Config;
 
-const localApiRoot = "//localhost:54727/api";
-const testApiRoot = "http://testservices.baltimorecountymd.gov/api";
+const testApiRoot = "https://testservices.baltimorecountymd.gov/api";
 const prodApiRoot = "https://services.baltimorecountymd.gov/api";
+
+// HACK - the Config utiltiy does not account for beta.
+// TODO: This will need to be addressed when we get closer to launch
+const localApiRoot =
+  window.location.hostname.indexOf("beta") > -1
+    ? testApiRoot
+    : "//localhost:54727/api";
 
 const configValues = {
   local: {
@@ -29,11 +36,8 @@ setConfig(configValues);
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <h1>Services</h1>
-        <ServiceList />
-      </div>
+    <div className="bc_services-list-app">
+      <ServiceList />
     </div>
   );
 }

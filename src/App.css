@@ -1,5 +1,9 @@
-.App {
-  text-align: center;
+.dg_icon-link_footer-text {
+  transition: all 0.5s ease;
+  transition-property: color, border;
+  font-size: 0.9em;
+  font-style: "italic";
+  margin: 40px 0 0;
 }
 
 .container {
@@ -60,18 +64,7 @@ input[type="checkbox"] {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+.dg_icon-link:hover .dg_icon-link_footer-text {
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
