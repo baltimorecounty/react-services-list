@@ -34,21 +34,12 @@ const ServiceList = () => {
 
   return (
     <React.Fragment>
-      <CheckBox onChange={() => setChecked(isChecked ? 0 : 1)} /> 
+     
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div>
-          <div style={flex}>
-            <i
-              className="fas fa-star"
-              aria-hidden="true"
-              style={MostPopularServiceIconStyles}
-            ></i>
-            <p style={legendText}> - Indicates a Most Popular Service</p>
-           
-          </div>
-      
+        <div> 
+        <CheckBox onChange={() => setChecked(isChecked ? 0 : 1)} />      
           <div className="row">
             <FilterList
               items={serviceItems}
@@ -62,7 +53,7 @@ const ServiceList = () => {
               )}
             />
           </div>
-        </div>
+        </div> 
       )}
     </React.Fragment>
   );

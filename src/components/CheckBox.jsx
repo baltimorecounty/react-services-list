@@ -1,29 +1,33 @@
 import React from "react";
-
+import { MostPopularServiceIconStyles } from "../styles";
 const CheckBox = props => {
   const { onChange } = props;
+  let legendText = {
+    fontStyle: "italic",
+    marginLeft: "5px",
+    fontWeight: "900"
+  };
 
   return (
     <React.Fragment>
       <div className="container">
         <div className="flexItem">
-          <i className="fas fa-star legendStar" aria-hidden="true"></i> 
-          <p className="ltalicText">-Indicates a Most Popular Service</p> 
-        </div>
-        <div className="flexItem">
-          <p className="ltalicText">Sort by: </p>
+          <i className="fas fa-star" aria-hidden="true"    style={MostPopularServiceIconStyles}></i> 
+          <p style={legendText}> - Indicates a Most Popular Service</p>
+         </div>
+        <div className="flexItem"> 
+          <p style={legendText}>Sort by: </p>
           <div className="dg_checkbox">
             <input
               name="popularity"
-              id="popularity-color-blue"
+              id="popularity-color-black"
               className="dg_checkbox-input"
               type="checkbox"
               onChange={onChange}
             />
-            <label class="dg_label dg_checkbox-label" for="popularity-color-blue">
+            <label class="dg_label dg_checkbox-label" for="popularity-color-black">
               POPULARITY
             </label>
-            {/* <h4>POPULARITY </h4> */}
           </div>
         </div>
       </div>
