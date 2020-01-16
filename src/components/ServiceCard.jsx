@@ -1,8 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardFooter
-} from "@baltimorecounty/dotgov-components";
+import { IconLink } from "@baltimorecounty/dotgov-components";
 
 import React from "react";
 
@@ -35,29 +31,27 @@ let iconStyles = {
 };
 
 const ServiceCard = ({ name, department, url, icon, rank }) => (
-  <Card>
-    <a href={url} style={textDecoration}>
-      <CardContent>
-        <div className="dg_icon-container" style={container}>
-          <i className={icon} aria-hidden="true" style={iconStyles}></i>
-          {rank > 0 ? (
-            <span className="sr-only">
-              {`${name} is one of baltimore county's most popular services`}
-            </span>
-          ) : null}
-          <i
-            className={rank > 0 ? "fas fa-star" : ""}
-            style={starImg}
-            aria-hidden="true"
-          />
-        </div>
-        <h3>{name}</h3>
-      </CardContent>
-      <CardFooter>
+  <IconLink
+    icon={icon}
+    size="large"
+    description={
+      rank > 0
+        ? `${name} is one of baltimore county's most popular services`
+        : `${name} is one of baltimore county's services`
+    }
+    text={name}
+    href={url}
+    children={
+      <div>
         <p style={departmentStyle}>{department}</p>
-      </CardFooter>
-    </a>
-  </Card>
+        <i
+          className={rank > 0 ? "fas fa-star" : ""}
+          style={starImg}
+          aria-hidden="true"
+        />
+      </div>
+    }
+  />
 );
 
 export default ServiceCard;

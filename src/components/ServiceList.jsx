@@ -2,19 +2,21 @@ import FilterList from "../components/FilterList";
 import React from "react";
 import ServiceCard from "../components/ServiceCard";
 import useServices from "../hooks/useServices";
+import { Section } from "@baltimorecounty/dotgov-components";
 
 const ServiceList = () => {
   const { serviceItems = [], isLoading } = useServices();
 
   let legendStar = {
-    fontSize: "30px",
+    fontSize: "25px",
     color: "gray",
     textAlign: "left"
   };
 
   let legendText = {
     fontStyle: "italic",
-    marginLeft: "5px"
+    marginLeft: "5px",
+    fontWeight: "900"
   };
 
   let flex = {
@@ -30,19 +32,17 @@ const ServiceList = () => {
         <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
         <p style={legendText}>-Indicates a Most Popular Service</p>
       </div>
-      <div className="row">
-        <FilterList
-          items={serviceItems}
-          renderItem={props => (
-            <div
-              key={props.name.replace(/\s/, "-")}
-              className="d-flex col-lg-3 col-md-6 col-sm-6"
-            >
+
+      <FilterList
+        items={serviceItems}
+        renderItem={props => (
+          <div style={{ padding: "10px" }}>
+            <div key={props.name.replace(/\s/, "-")} className="dg_item-grid">
               <ServiceCard {...props} />
             </div>
-          )}
-        />
-      </div>
+          </div>
+        )}
+      />
     </div>
   );
 };
