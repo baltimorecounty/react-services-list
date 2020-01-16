@@ -1,8 +1,4 @@
-import {
-  MostPopularServiceIconStyles,
-  ServiceIconLinkDepartmentStyle,
-  SetAbsolutePosition
-} from "../styles";
+import { MostPopularServiceIconStyles, SetAbsolutePosition } from "../styles";
 
 import { IconLink } from "@baltimorecounty/dotgov-components";
 import React from "react";
@@ -25,10 +21,16 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
     }
     text={name}
     href={url}
-    style={{ display: "block", position: "relative", width: "100%" }}
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      position: "relative",
+      width: "100%"
+    }}
   >
     <div>
-      <p style={ServiceIconLinkDepartmentStyle}>{department}</p>
+      <p className="dg_icon-link_footer-text">{department}</p>
       {rank > 0 && (
         <i
           className="fas fa-star"
