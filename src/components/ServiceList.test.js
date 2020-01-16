@@ -11,6 +11,22 @@ import { GetServices as mockGetService } from "../services/ApiService";
 
 jest.mock("../services/ApiService");
 
+beforeAll(() => {
+  jest.restoreAllMocks();
+});
+
+test("should show an error when the service is not available", async () => {
+  mockGetService.mockRejectedValueOnce();
+  const { getByText } = render(<ServiceList />);
+
+  // Ensure there is a loading message
+  getByText("Loading Baltimore County services...");
+
+  await wait(() => {
+    expect(/error/i);
+  });
+});
+
 test("should render a list of services", async () => {
   mockGetService.mockResolvedValueOnce([
     {
@@ -47,11 +63,10 @@ test("should render a list of services", async () => {
     getByText(/indicates a most popular service/i);
 
     // Service Links
-    const withinAdoptAPetLink = within(
-      queryAllByText(/adopt a pet/i)[0].closest("a")
-    );
+    const adoptAPetLinkElm = queryAllByText(/adopt a pet/i)[0].closest("a");
+    const withinAdoptAPetLink = within(adoptAPetLinkElm);
     withinAdoptAPetLink.getByText(/animal services/i);
-    withinAdoptAPetLink.getByText(
+    expect(adoptAPetLinkElm.getAttribute("aria-label")).toMatch(
       /adopt a pet is one of baltimore county's most popular services/i
     );
 
@@ -60,11 +75,12 @@ test("should render a list of services", async () => {
     );
     withinPavilionLink.getByText(/rec and parks/i);
 
-    const withinTrashAndRecyclingLink = within(
-      queryAllByText(/trash and recycling/i)[0].closest("a")
-    );
+    const trashAndRecyclingLinkElm = queryAllByText(
+      /trash and recycling/i
+    )[0].closest("a");
+    const withinTrashAndRecyclingLink = within(trashAndRecyclingLinkElm);
     withinTrashAndRecyclingLink.getByText(/public works/i);
-    withinTrashAndRecyclingLink.getByText(
+    expect(trashAndRecyclingLinkElm.getAttribute("aria-label")).toMatch(
       /trash and recycling is one of baltimore county's most popular services/i
     );
   });
