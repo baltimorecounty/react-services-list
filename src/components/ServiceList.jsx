@@ -27,7 +27,7 @@ const ServiceList = () => {
           aria-hidden="true"
           style={MostPopularServiceIconStyles}
         ></i>
-        <p style={legendText}>-Indicates a Most Popular Service</p>
+        <p style={legendText}> - Indicates a Most Popular Service</p>
       </div>
       <div className="row">
         <FilterList
