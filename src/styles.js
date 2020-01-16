@@ -4,11 +4,13 @@ const MostPopularServiceIconStyles = {
   textAlign: "left"
 };
 
-const PositionAbsoluteTopRightStyle = {
-  top: "0px",
-  right: "0px",
+const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
+  top,
+  right,
+  left,
+  bottom,
   position: "absolute"
-};
+});
 
 let ServiceIconLinkDepartmentStyle = {
   fontSize: ".9em",
@@ -19,6 +21,6 @@ let ServiceIconLinkDepartmentStyle = {
 
 export {
   MostPopularServiceIconStyles,
-  PositionAbsoluteTopRightStyle,
+  SetAbsolutePosition,
   ServiceIconLinkDepartmentStyle
 };

@@ -1,11 +1,18 @@
 import {
   MostPopularServiceIconStyles,
-  PositionAbsoluteTopRightStyle,
-  ServiceIconLinkDepartmentStyle
+  ServiceIconLinkDepartmentStyle,
+  SetAbsolutePosition
 } from "../styles";
 
 import { IconLink } from "@baltimorecounty/dotgov-components";
 import React from "react";
+
+// Overrides default icon styles for a Icon Link
+const iconResetStyles = {
+  lineHeight: "unset",
+  width: "auto",
+  height: "auto"
+};
 
 const ServiceIconLink = ({ name, department, url, icon, rank }) => (
   <IconLink
@@ -18,18 +25,21 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
     }
     text={name}
     href={url}
-    style={{ position: "relative", display: "block", width: "100%" }}
+    style={{ display: "block", position: "relative", width: "100%" }}
   >
     <div>
       <p style={ServiceIconLinkDepartmentStyle}>{department}</p>
-      <i
-        className={rank > 0 && icon ? "fas fa-star" : ""}
-        style={{
-          ...MostPopularServiceIconStyles,
-          ...PositionAbsoluteTopRightStyle
-        }}
-        aria-hidden="true"
-      />
+      {rank > 0 && (
+        <i
+          className="fas fa-star"
+          style={{
+            ...MostPopularServiceIconStyles,
+            ...SetAbsolutePosition({ top: "15px", right: "15px" }),
+            ...iconResetStyles
+          }}
+          aria-hidden="true"
+        />
+      )}
     </div>
   </IconLink>
 );
