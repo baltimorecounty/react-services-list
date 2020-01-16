@@ -3,6 +3,10 @@ import {
   CardContent,
   CardFooter
 } from "@baltimorecounty/dotgov-components";
+import {
+  MostPopularServiceIconStyles,
+  PositionAbsoluteTopRightStyle
+} from "../styles";
 
 import React from "react";
 
@@ -15,14 +19,6 @@ let departmentStyle = {
 
 let textDecoration = {
   textDecoration: "none"
-};
-
-let starImg = {
-  fontSize: "30px",
-  top: "0px",
-  right: "0px",
-  position: "absolute",
-  color: "gray"
 };
 
 let container = {
@@ -47,7 +43,10 @@ const ServiceCard = ({ name, department, url, icon, rank }) => (
           ) : null}
           <i
             className={rank > 0 ? "fas fa-star" : ""}
-            style={starImg}
+            style={{
+              ...MostPopularServiceIconStyles,
+              ...PositionAbsoluteTopRightStyle
+            }}
             aria-hidden="true"
           />
         </div>

@@ -1,16 +1,11 @@
 import FilterList from "../components/FilterList";
+import { MostPopularServiceIconStyles } from "../styles";
 import React from "react";
 import ServiceCard from "../components/ServiceCard";
 import useServices from "../hooks/useServices";
 
 const ServiceList = () => {
   const { serviceItems = [], isLoading } = useServices();
-
-  let legendStar = {
-    fontSize: "30px",
-    color: "gray",
-    textAlign: "left"
-  };
 
   let legendText = {
     fontStyle: "italic",
@@ -27,7 +22,11 @@ const ServiceList = () => {
   ) : (
     <div>
       <div style={flex}>
-        <i className="fas fa-star" aria-hidden="true" style={legendStar}></i>
+        <i
+          className="fas fa-star"
+          aria-hidden="true"
+          style={MostPopularServiceIconStyles}
+        ></i>
         <p style={legendText}>-Indicates a Most Popular Service</p>
       </div>
       <div className="row">
