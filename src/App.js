@@ -11,6 +11,7 @@ const testApiRoot = "https://testservices.baltimorecountymd.gov/api";
 const prodApiRoot = "https://services.baltimorecountymd.gov/api";
 
 // HACK - the Config utiltiy does not account for beta.
+// TODO: This will need to be addressed when we get closer to launch
 const localApiRoot =
   window.location.hostname.indexOf("beta") > -1
     ? testApiRoot
