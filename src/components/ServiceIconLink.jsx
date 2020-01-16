@@ -1,10 +1,10 @@
-import { IconLink } from "@baltimorecounty/dotgov-components";
 import {
   MostPopularServiceIconStyles,
   PositionAbsoluteTopRightStyle,
   ServiceIconLinkDepartmentStyle
 } from "../styles";
 
+import { IconLink } from "@baltimorecounty/dotgov-components";
 import React from "react";
 
 const ServiceIconLink = ({ name, department, url, icon, rank }) => (
@@ -18,20 +18,20 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
     }
     text={name}
     href={url}
-    children={
-      <div>
-        <p style={ServiceIconLinkDepartmentStyle}>{department}</p>
-        <i
-          className={rank > 0 && icon ? "fas fa-star" : ""}
-          style={{
-            ...MostPopularServiceIconStyles,
-            ...PositionAbsoluteTopRightStyle
-          }}
-          aria-hidden="true"
-        />
-      </div>
-    }
-  />
+    style={{ position: "relative" }}
+  >
+    <div>
+      <p style={ServiceIconLinkDepartmentStyle}>{department}</p>
+      <i
+        className={rank > 0 && icon ? "fas fa-star" : ""}
+        style={{
+          ...MostPopularServiceIconStyles,
+          ...PositionAbsoluteTopRightStyle
+        }}
+        aria-hidden="true"
+      />
+    </div>
+  </IconLink>
 );
 
 export default ServiceIconLink;
