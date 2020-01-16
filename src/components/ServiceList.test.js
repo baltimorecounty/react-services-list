@@ -70,10 +70,12 @@ test("should render a list of services", async () => {
       /adopt a pet is one of baltimore county's most popular services/i
     );
 
-    const withinPavilionLink = within(
-      queryAllByText(/pavilion rental/i)[0].closest("a")
-    );
+    const pavilionLinkElm = queryAllByText(/pavilion rental/i)[0].closest("a");
+    const withinPavilionLink = within(pavilionLinkElm);
     withinPavilionLink.getByText(/rec and parks/i);
+    expect(pavilionLinkElm.getAttribute("aria-label")).toMatch(
+      /pavilion rental is one of baltimore county's services/i
+    );
 
     const trashAndRecyclingLinkElm = queryAllByText(
       /trash and recycling/i
