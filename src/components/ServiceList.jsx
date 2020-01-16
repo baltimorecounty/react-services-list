@@ -1,3 +1,4 @@
+import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
 import { MostPopularServiceIconStyles } from "../styles";
 import React from "react";
@@ -5,7 +6,7 @@ import ServiceIconLink from "../components/ServiceIconLink";
 import useServices from "../hooks/useServices";
 
 const ServiceList = () => {
-  const { serviceItems = [], isLoading } = useServices();
+  const { hasError, serviceItems = [], isLoading } = useServices();
 
   let legendText = {
     fontStyle: "italic",
@@ -17,6 +18,17 @@ const ServiceList = () => {
     display: "flex",
     flexDirection: "row"
   };
+
+  if (hasError) {
+    return (
+      <Alert className="status" type="error">
+        <p>
+          Unable to retrieve the list of Baltimore County services. Please try
+          again in a couple of minutes.
+        </p>
+      </Alert>
+    );
+  }
 
   return isLoading ? (
     <p>Loading Baltimore County services...</p>
