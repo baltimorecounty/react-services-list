@@ -1,8 +1,9 @@
-import React from "react";
-import { Config } from "@baltimorecounty/javascript-utilities";
-import ServiceList from "./components/ServiceList";
 import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
 import "./App.css";
+
+import { Config } from "@baltimorecounty/javascript-utilities";
+import React from "react";
+import ServiceList from "./components/ServiceList";
 
 const { setConfig } = Config;
 
@@ -29,11 +30,8 @@ setConfig(configValues);
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        <h1>Services</h1>
-        <ServiceList />
-      </div>
+    <div className="bc_services-list-app">
+      <ServiceList />
     </div>
   );
 }
