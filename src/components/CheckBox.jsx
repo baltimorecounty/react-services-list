@@ -7,8 +7,8 @@ const CheckBox = props => {
     <React.Fragment>
       <div className="container">
         <div className="flexItem">
-          <i className="fas fa-star legendStar" aria-hidden="true"></i>
-          <p className="ltalicText">-Indicates a top 20 popular service</p>
+          <i className="fas fa-star legendStar" aria-hidden="true"></i> 
+          <p className="ltalicText">-Indicates a Most Popular Service</p> 
         </div>
         <div className="flexItem">
           <p className="ltalicText">Sort by: </p>

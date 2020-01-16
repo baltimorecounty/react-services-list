@@ -34,7 +34,7 @@ const ServiceList = () => {
 
   return (
     <React.Fragment>
-      <CheckBox onChange={() => setChecked(isChecked ? 0 : 1)} />
+      <CheckBox onChange={() => setChecked(isChecked ? 0 : 1)} /> 
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
@@ -46,7 +46,9 @@ const ServiceList = () => {
               style={MostPopularServiceIconStyles}
             ></i>
             <p style={legendText}> - Indicates a Most Popular Service</p>
+           
           </div>
+      
           <div className="row">
             <FilterList
               items={serviceItems}
