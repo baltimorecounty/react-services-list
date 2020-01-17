@@ -65,7 +65,7 @@ const ServiceList = () => {
   }
 
   let showing = isFiltering === 1 && searchedItems.length === 0 ? false : true;
-  //console.log("showing:" + showing);
+
   return (
     <React.Fragment>
       <Search onChange={onHandleSearch} />
@@ -74,7 +74,7 @@ const ServiceList = () => {
       ) : (
         <div>
           <CheckBox onChange={onHandleChange} checked={isChecked} />
-          {showing && (
+          {showing ?(
             <div className="row">
               <FilterList
                 items={searchedItems.length > 0 ? searchedItems : serviceItems}
@@ -88,7 +88,7 @@ const ServiceList = () => {
                 )}
               />
             </div>
-          )}
+          ):"record not found"}
         </div>
       )}
     </React.Fragment>
