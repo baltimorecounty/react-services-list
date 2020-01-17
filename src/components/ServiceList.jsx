@@ -26,36 +26,31 @@ const ServiceList = () => {
     return false;
   }
 
-  const onHandleChange = item => {
+  const checkCondition = (checkedVal, searchText) => {
     let checkedItems = [];
-
-    const checkedVal = item.target.checked;
-    setChecked(checkedVal ? 1 : 0);
-    setIsFiltering(searchText.length === 0 && checkedVal === false ? 0 : 1);
     checkedItems = checkedVal
       ? searchText.length > 0
         ? filterItems(serviceItems.filter(filterByPopularity), searchText)
         : serviceItems.filter(filterByPopularity)
-      : (checkedItems =
-          searchText.length > 0 ? filterItems(checkedItems, searchText) : []);
+      : searchText.length > 0
+      ? filterItems(serviceItems, searchText)
+      : [];
 
     setSearchedItems(checkedItems);
   };
+  const onHandleChange = item => {
+    const checkedVal = item.target.checked;
+    setChecked(checkedVal ? 1 : 0);
+    setIsFiltering(searchText.length === 0 && checkedVal === false ? 0 : 1);
+    checkCondition(checkedVal, searchText);
+  };
 
   const onHandleSearch = event => {
-    let checkedItems = [];
-
     const checkedVal = isChecked;
     const searchText = event.target.value;
-    setIsFiltering(searchText.length === 0 && isChecked === 0 ? 0 : 1);
+    setIsFiltering(searchText.length === 0 && checkedVal === 0 ? 0 : 1);
     setSearchText(searchText);
-    checkedItems = checkedVal
-      ? searchText.length > 0
-        ? filterItems(serviceItems.filter(filterByPopularity), searchText)
-        : serviceItems.filter(filterByPopularity)
-      : (checkedItems =
-          searchText.length > 0 ? filterItems(serviceItems, searchText) : []);
-    setSearchedItems(checkedItems);
+    checkCondition(checkedVal, searchText);
   };
 
   if (hasError) {
