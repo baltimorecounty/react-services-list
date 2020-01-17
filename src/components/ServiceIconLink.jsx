@@ -33,12 +33,13 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
       <p className="dg_icon-link_footer-text">{department}</p>
       {rank > 0 && (
         <i
-          className="fas fa-star"
+         
           style={{
             ...MostPopularServiceIconStyles,
             ...SetAbsolutePosition({ top: "15px", right: "15px" }),
             ...iconResetStyles
           }}
+          className="fas fa-star dg_icon-link_footer-text"
           aria-hidden="true"
         />
       )}

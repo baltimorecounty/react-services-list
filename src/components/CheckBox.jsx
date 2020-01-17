@@ -1,7 +1,7 @@
 import React from "react";
 import { MostPopularServiceIconStyles } from "../styles";
 const CheckBox = props => {
-  const { onChange } = props;
+  const { onChange , checked} = props;
   let legendText = {
     fontStyle: "italic",
     marginLeft: "5px",
@@ -21,9 +21,11 @@ const CheckBox = props => {
             <input
               name="popularity"
               id="popularity-color-black"
+              value={checked}
               className="dg_checkbox-input"
               type="checkbox"
               onChange={onChange}
+              
             />
             <label class="dg_label dg_checkbox-label" for="popularity-color-black">
               POPULARITY

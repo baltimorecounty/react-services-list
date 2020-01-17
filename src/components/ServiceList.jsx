@@ -1,38 +1,63 @@
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ServiceIconLink from "../components/ServiceIconLink";
 import useServices from "../hooks/useServices";
 import CheckBox from "./CheckBox";
+import Search from "./Search";
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
   const [isChecked, setChecked] = useState(0);
-  const [test ,setTest]=useState([]);
+  const [searchedItems, setSearchedItems] = useState([]);
+  const [searchText, setSearchText] = useState([]);
+  const [isFiltering, setIsFiltering] = useState(0);
 
-  let invalidEntries = 0
-  function isNumber(obj) {
-    return obj !== undefined && typeof(obj) === 'number' && !isNaN(obj)
+  function filterItems(arr, query) {
+    return arr.filter(function(el) {
+      return el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+    });
   }
-  
-  function filterByID(item) {
+
+  function filterByPopularity(item) {
     if (item.rank === 1) {
-      return true
-    } 
-    invalidEntries++
+      return true;
+    }
     return false;
   }
 
-const onHandleChange=(event)=>{
+  const onHandleChange = item => {
+    let checkedItems = [];
 
-setChecked(isChecked ? 0 : 1)
-console.log(isChecked);
-let arrByID = serviceItems.filter(filterByID);
-console.log(arrByID);
-setTest(arrByID)
+    const checkedVal = item.target.checked;
+    setChecked(checkedVal ? 1 : 0);
+    setIsFiltering(searchText.length === 0 && checkedVal === false ? 0 : 1);
+    checkedItems = checkedVal
+      ? searchText.length > 0
+        ? filterItems(serviceItems.filter(filterByPopularity), searchText)
+        : serviceItems.filter(filterByPopularity)
+      : (checkedItems =
+          searchText.length > 0 ? filterItems(checkedItems, searchText) : []);
 
-console.log('Number of Invalid Entries = ', test)
-};
+    setSearchedItems(checkedItems);
+  };
+
+  const onHandleSearch = event => {
+    let checkedItems = [];
+
+    const checkedVal = isChecked;
+    const searchText = event.target.value;
+    setIsFiltering(searchText.length === 0 && isChecked === 0 ? 0 : 1);
+    setSearchText(searchText);
+    checkedItems = checkedVal
+      ? searchText.length > 0
+        ? filterItems(serviceItems.filter(filterByPopularity), searchText)
+        : serviceItems.filter(filterByPopularity)
+      : (checkedItems =
+          searchText.length > 0 ? filterItems(serviceItems, searchText) : []);
+    setSearchedItems(checkedItems);
+  };
+
   if (hasError) {
     return (
       <Alert className="status" type="error">
@@ -44,29 +69,32 @@ console.log('Number of Invalid Entries = ', test)
     );
   }
 
+  let showing = isFiltering === 1 && searchedItems.length === 0 ? false : true;
+  //console.log("showing:" + showing);
   return (
     <React.Fragment>
-     
+      <Search onChange={onHandleSearch} />
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div> 
-        <CheckBox onChange={onHandleChange} />   
-        {/* <CheckBox onChange={() => setChecked(isChecked ? 0 : 1)} />       */}
-          <div className="row">
-            <FilterList
-              items={serviceItems}
-              renderItem={props => (
-                <div
-                  key={props.name.replace(/\s/, "-")}
-                  className="d-flex col-lg-3 col-md-6 col-sm-6"
-                >
-                  <ServiceIconLink {...props} />
-                </div>
-              )}
-            />
-          </div>
-        </div> 
+        <div>
+          <CheckBox onChange={onHandleChange} checked={isChecked} />
+          {showing && (
+            <div className="row">
+              <FilterList
+                items={searchedItems.length > 0 ? searchedItems : serviceItems}
+                renderItem={props => (
+                  <div
+                    key={props.name.replace(/\s/, "-")}
+                    className="d-flex col-lg-3 col-md-6 col-sm-6"
+                  >
+                    <ServiceIconLink {...props} checked={isChecked} />
+                  </div>
+                )}
+              />
+            </div>
+          )}
+        </div>
       )}
     </React.Fragment>
   );
