@@ -84,18 +84,29 @@ const ServiceList = () => {
         <div>
           <CheckBox onChange={onHandleChange} checked={isChecked} />
           {searchItemFound ? (
-            <div className="row">
-              <FilterList
-                items={searchedItems.length > 0 ? searchedItems : serviceItems}
-                renderItem={props => (
-                  <div
-                    key={props.name.replace(/\s/, "-")}
-                    className="d-flex col-lg-3 col-md-6 col-sm-6"
-                  >
-                    <ServiceIconLink {...props} checked={isChecked} />
-                  </div>
-                )}
-              />
+            <div>
+              <div className="row">
+                <FilterList
+                  items={
+                    searchedItems.length > 0 ? searchedItems : serviceItems
+                  }
+                  renderItem={props => (
+                    <div
+                      key={props.name.replace(/\s/, "-")}
+                      className="d-flex col-lg-3 col-md-6 col-sm-6"
+                    >
+                      <ServiceIconLink {...props} checked={isChecked} />
+                    </div>
+                  )}
+                />
+              </div>
+              <div>
+                <p>{`Showing ${
+                  searchedItems.length === 0
+                    ? serviceItems.length
+                    : searchedItems.length
+                } of ${serviceItems.length}`}</p>
+              </div>
             </div>
           ) : (
             "Sorry, no services match your search criteria. Please change your search term and try again"
