@@ -46,7 +46,6 @@ const ServiceList = () => {
   };
 
   const onHandleChange = item => {
-    console.log('onHandleChange1');
     const checkedValue = item.target.checked;
     setChecked(checkedValue ? true : false);
     settingFiltering(searchText.length, checkedValue);
@@ -90,7 +89,6 @@ const ServiceList = () => {
               isExpanded={false}
             />
           </div>
-
           <div>
             <div>
               <Search onChange={onHandleSearch} />
