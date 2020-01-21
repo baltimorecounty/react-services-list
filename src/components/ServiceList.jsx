@@ -11,7 +11,7 @@ const ServiceList = () => {
   const [isChecked, setChecked] = useState(false);
   const [searchedItems, setSearchedItems] = useState([]);
   const [searchText, setSearchText] = useState([]);
-  const [isFiltering, setIsFiltering] = useState(0);
+  const [isFiltering, setIsFiltering] = useState(false);
 
   const filterItems = (services, searchText) => {
     return services.filter((item) =>{
@@ -40,7 +40,7 @@ const ServiceList = () => {
     setSearchedItems(checkedItems);
   };
   const settingFiltering = (searchText, checkedValue) => {
-    setIsFiltering(searchText === 0 && checkedValue === false ? 0 : 1);
+    setIsFiltering(searchText === 0 && checkedValue === false ? false : true);
   };
 
   const onHandleChange = item => {
@@ -70,7 +70,7 @@ const ServiceList = () => {
   }
 
   let searchItemFound =
-    isFiltering === 1 && searchedItems.length === 0 ? false : true;
+    isFiltering === true && searchedItems.length === 0 ? false : true;
 
   return (
     <React.Fragment>
