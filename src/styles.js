@@ -18,7 +18,6 @@ let LegendText = {
 };
 
 let CollapseContainer = {
-  width: "100%",
   marginRight: "50px"
 };
 

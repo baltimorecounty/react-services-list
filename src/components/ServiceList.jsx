@@ -122,7 +122,7 @@ const ServiceList = () => {
                     )}
                   />
                 </div>
-                <div>
+                <div className="dg_service_counter">
                   <p>{`Showing ${
                     searchedItems.length === 0
                       ? serviceItems.length
