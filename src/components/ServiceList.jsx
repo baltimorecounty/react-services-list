@@ -13,21 +13,21 @@ const ServiceList = () => {
   const [searchText, setSearchText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(0);
 
-  function filterItems(arr, query) {
-    return arr.filter(function(el) {
+  const filterItems = (services, searchText) => {
+    return services.filter(function(el) {
       return (
-        el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        el.department.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        el.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+        el.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
       );
     });
-  }
+  };
 
-  function filterByPopularity(item) {
+  const filterByPopularity = item => {
     if (item.rank > 0) {
       return true;
     }
     return false;
-  }
+  };
 
   const checkCondition = (checkedVal, searchText) => {
     let checkedItems = [];

@@ -1,7 +1,7 @@
 import React from "react";
 import { MostPopularServiceIconStyles } from "../styles";
 const CheckBox = props => {
-  const { onChange , checked} = props;
+  const { onChange, checked } = props;
   let legendText = {
     fontStyle: "italic",
     marginLeft: "5px",
@@ -12,10 +12,14 @@ const CheckBox = props => {
     <React.Fragment>
       <div className="container">
         <div className="flexItem">
-          <i className="fas fa-star" aria-hidden="true"    style={MostPopularServiceIconStyles}></i> 
+          <i
+            className="fas fa-star"
+            aria-hidden="true"
+            style={MostPopularServiceIconStyles}
+          ></i>
           <p style={legendText}> - Indicates a Most Popular Service</p>
-         </div>
-        <div className="flexItem"> 
+        </div>
+        <div className="flexItem">
           <div style={legendText}>Sort by: </div>
           <div className="dg_checkbox">
             <input
@@ -25,9 +29,11 @@ const CheckBox = props => {
               className="dg_checkbox-input"
               type="checkbox"
               onChange={onChange}
-              
             />
-            <label class="dg_label dg_checkbox-label" for="popularity-color-black">
+            <label
+              className="dg_label dg_checkbox-label"
+              htmlFor="popularity-color-black"
+            >
               POPULARITY
             </label>
           </div>
