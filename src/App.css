@@ -10,10 +10,7 @@
   color: gray;
 }
 
-.dg_icon-link:hover .dg_icon-link_footer-text {
-  color: white;
-}
-
+.dg_icon-link:hover .dg_icon-link_footer-text,
 .dg_icon-link:hover .dg_popular_star {
   color: white;
 }
