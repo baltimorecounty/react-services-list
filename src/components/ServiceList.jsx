@@ -98,7 +98,7 @@ const ServiceList = () => {
               />
             </div>
           ) : (
-            "record not found"
+            "Sorry, no services match your search criteria. Please change your search term and try again"
           )}
         </div>
       )}
