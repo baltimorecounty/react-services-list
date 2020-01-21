@@ -1,9 +1,10 @@
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
 import React, { useState } from "react";
-import ServiceIconLink from "../components/ServiceIconLink";
+import ServiceIconLink from "./ServiceIconLink";
+import SearchCollapse from "./SearchCollapse";
 import useServices from "../hooks/useServices";
-import CheckBox from "./CheckBox";
+import { MostPopularServiceIconStyles, LegendText } from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
@@ -14,16 +15,17 @@ const ServiceList = () => {
   const [isFiltering, setIsFiltering] = useState(false);
 
   const filterItems = (services, searchText) => {
-    return services.filter((item) =>{
-      const {name,department} =item;
-       return name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-        department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
-      
+    return services.filter(item => {
+      const { name, department } = item;
+      return (
+        name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+        department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+      );
     });
   };
 
   const filterByPopularity = item => {
-    return (item.rank > 0)?true:false;
+    return item.rank > 0 ? true : false;
   };
 
   const checkCondition = (checkedVal, searchText) => {
@@ -44,6 +46,7 @@ const ServiceList = () => {
   };
 
   const onHandleChange = item => {
+    console.log(item);
     const checkedValue = item.target.checked;
     setChecked(checkedValue ? true : false);
     settingFiltering(searchText.length, checkedValue);
@@ -79,35 +82,53 @@ const ServiceList = () => {
         <p>Loading Baltimore County services...</p>
       ) : (
         <div>
-          <CheckBox onChange={onHandleChange} checked={isChecked} />
-          {searchItemFound ? (
-            <div>
-              <div className="row">
-                <FilterList
-                  items={
-                    searchedItems.length > 0 ? searchedItems : serviceItems
-                  }
-                  renderItem={props => (
-                    <div
-                      key={props.name.replace(/\s/, "-")}
-                      className="d-flex col-lg-3 col-md-6 col-sm-6"
-                    >
-                      <ServiceIconLink {...props} checked={isChecked} />
-                    </div>
-                  )}
-                />
-              </div>
+          <div>
+            <SearchCollapse
+              header="Categories"
+              id="PopularSearches"
+              onChange={onHandleChange}
+              checked={isChecked}
+            />
+          </div>
+          <div>
+            {/* <CheckBox onChange={onHandleChange} checked={isChecked} /> */}
+            {searchItemFound ? (
               <div>
-                <p>{`Showing ${
-                  searchedItems.length === 0
-                    ? serviceItems.length
-                    : searchedItems.length
-                } of ${serviceItems.length} services`}</p>
+                <div className="flexItem">
+                  <i
+                    className="fas fa-star"
+                    aria-hidden="true"
+                    style={MostPopularServiceIconStyles}
+                  ></i>
+                  <p style={LegendText}> - Indicates a Most Popular Service</p>
+                </div>
+                <div className="row">
+                  <FilterList
+                    items={
+                      searchedItems.length > 0 ? searchedItems : serviceItems
+                    }
+                    renderItem={props => (
+                      <div
+                        key={props.name.replace(/\s/, "-")}
+                        className="d-flex col-lg-3 col-md-6 col-sm-6"
+                      >
+                        <ServiceIconLink {...props} checked={isChecked} />
+                      </div>
+                    )}
+                  />
+                </div>
+                <div>
+                  <p>{`Showing ${
+                    searchedItems.length === 0
+                      ? serviceItems.length
+                      : searchedItems.length
+                  } of ${serviceItems.length} services`}</p>
+                </div>
               </div>
-            </div>
-          ) : (
-            "Sorry, no services match your search criteria. Please change your search term and try again"
-          )}
+            ) : (
+              "Sorry, no services match your search criteria. Please change your search term and try again"
+            )}
+          </div>
         </div>
       )}
     </React.Fragment>

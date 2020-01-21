@@ -11,4 +11,10 @@ const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
   position: "absolute"
 });
 
-export { MostPopularServiceIconStyles, SetAbsolutePosition };
+let LegendText = {
+  fontStyle: "italic",
+  marginLeft: "5px",
+  fontWeight: "900"
+};
+
+export { MostPopularServiceIconStyles, SetAbsolutePosition, LegendText };
