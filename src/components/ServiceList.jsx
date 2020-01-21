@@ -84,7 +84,7 @@ const ServiceList = () => {
         <p>Loading Baltimore County services...</p>
       ) : (
         <div className="container">
-          <div className="col-md-4 col-sm-12">
+          <div className="col-md-3 col-sm-12">
           <div >
             <section className="dg_section">
               <div className="dg_section__content">
