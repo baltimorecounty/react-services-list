@@ -14,19 +14,16 @@ const ServiceList = () => {
   const [isFiltering, setIsFiltering] = useState(0);
 
   const filterItems = (services, searchText) => {
-    return services.filter(function(el) {
-      return (
-        el.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-        el.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
-      );
+    return services.filter((item) =>{
+      const {name,department} =item;
+       return name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+        department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1;
+      
     });
   };
 
   const filterByPopularity = item => {
-    if (item.rank > 0) {
-      return true;
-    }
-    return false;
+    return (item.rank > 0)?true:false;
   };
 
   const checkCondition = (checkedVal, searchText) => {
