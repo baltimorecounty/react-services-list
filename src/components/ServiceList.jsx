@@ -105,7 +105,7 @@ const ServiceList = () => {
                   searchedItems.length === 0
                     ? serviceItems.length
                     : searchedItems.length
-                } of ${serviceItems.length}`}</p>
+                } of ${serviceItems.length} services`}</p>
               </div>
             </div>
           ) : (
