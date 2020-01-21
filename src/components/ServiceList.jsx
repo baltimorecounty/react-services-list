@@ -69,7 +69,7 @@ const settingFiltering=(searchText, checkedValue)=>{
     );
   }
 
-  let showing = isFiltering === 1 && searchedItems.length === 0 ? false : true;
+  let searchItemFound = isFiltering === 1 && searchedItems.length === 0 ? false : true;
  
   return (
     <React.Fragment>
@@ -79,7 +79,7 @@ const settingFiltering=(searchText, checkedValue)=>{
       ) : (
         <div>
           <CheckBox onChange={onHandleChange} checked={isChecked} />
-          {showing ?(
+          {searchItemFound ?(
             <div className="row">
               <FilterList
                 items={searchedItems.length > 0 ? searchedItems : serviceItems}
