@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding-right: 0px;
   padding-left: 0px;
-  margin-top:10px;
+  margin-top: 10px;
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -27,7 +27,13 @@ input[type="checkbox"] {
   bottom: 1px;
   width: 50px;
   -webkit-appearance: checkbox;
-  outline: none; 
+  outline: none;
+}
+
+.dg_service_counter {
+  text-align: right;
+  font-style: italic;
+  color: gray;
 }
 
 .dg_checkbox {
