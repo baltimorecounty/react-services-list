@@ -15,12 +15,12 @@ const ServiceList = () => {
 
   function filterItems(arr, query) {
     return arr.filter(function(el) {
-      return el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      return el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 || el.department.toLowerCase().indexOf(query.toLowerCase()) !== -1;
     });
   }
 
   function filterByPopularity(item) {
-    if (item.rank === 1) {
+    if (item.rank > 0) {
       return true;
     }
     return false;
