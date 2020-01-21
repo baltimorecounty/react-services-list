@@ -1,6 +1,5 @@
 const MostPopularServiceIconStyles = {
   fontSize: "25px",
-  //color: "gray",
   textAlign: "left"
 };
 

@@ -15,7 +15,10 @@ const ServiceList = () => {
 
   function filterItems(arr, query) {
     return arr.filter(function(el) {
-      return el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 || el.department.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+      return (
+        el.name.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        el.department.toLowerCase().indexOf(query.toLowerCase()) !== -1
+      );
     });
   }
 
@@ -39,21 +42,21 @@ const ServiceList = () => {
 
     setSearchedItems(checkedItems);
   };
-const settingFiltering=(searchText, checkedValue)=>{
-  setIsFiltering(searchText=== 0 && checkedValue === false ? 0 : 1);
-}
+  const settingFiltering = (searchText, checkedValue) => {
+    setIsFiltering(searchText === 0 && checkedValue === false ? 0 : 1);
+  };
 
   const onHandleChange = item => {
     const checkedValue = item.target.checked;
     setChecked(checkedValue ? true : false);
-    settingFiltering(searchText.length , checkedValue)
+    settingFiltering(searchText.length, checkedValue);
     checkCondition(checkedValue, searchText);
   };
 
   const onHandleSearch = event => {
     const checkedValue = isChecked;
     const searchText = event.target.value;
-    settingFiltering(searchText.length , checkedValue)
+    settingFiltering(searchText.length, checkedValue);
     setSearchText(searchText);
     checkCondition(checkedValue, searchText);
   };
@@ -69,8 +72,9 @@ const settingFiltering=(searchText, checkedValue)=>{
     );
   }
 
-  let searchItemFound = isFiltering === 1 && searchedItems.length === 0 ? false : true;
- 
+  let searchItemFound =
+    isFiltering === 1 && searchedItems.length === 0 ? false : true;
+
   return (
     <React.Fragment>
       <Search onChange={onHandleSearch} />
@@ -79,7 +83,7 @@ const settingFiltering=(searchText, checkedValue)=>{
       ) : (
         <div>
           <CheckBox onChange={onHandleChange} checked={isChecked} />
-          {searchItemFound ?(
+          {searchItemFound ? (
             <div className="row">
               <FilterList
                 items={searchedItems.length > 0 ? searchedItems : serviceItems}
@@ -93,7 +97,9 @@ const settingFiltering=(searchText, checkedValue)=>{
                 )}
               />
             </div>
-          ):"record not found"}
+          ) : (
+            "record not found"
+          )}
         </div>
       )}
     </React.Fragment>
