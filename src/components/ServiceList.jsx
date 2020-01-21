@@ -46,7 +46,7 @@ const ServiceList = () => {
   };
 
   const onHandleChange = item => {
-    console.log(item);
+    console.log('onHandleChange1');
     const checkedValue = item.target.checked;
     setChecked(checkedValue ? true : false);
     settingFiltering(searchText.length, checkedValue);

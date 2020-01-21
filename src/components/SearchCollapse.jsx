@@ -3,11 +3,11 @@ import { Collapse } from "@baltimorecounty/dotgov-components";
 import CheckBox from "./CheckBox";
 
 const SearchCollapse = props => {
-  const { id, header, onHandleChange, isChecked } = props;
-  console.log(props);
+  const { id, header, onChange, isChecked } = props;
+
   return (
     <Collapse id={id} header={header}>
-      <CheckBox onChange={onHandleChange} checked={isChecked} />
+      <CheckBox onChange={onChange} checked={isChecked} />
     </Collapse>
   );
 };
