@@ -62,3 +62,7 @@ input[type="checkbox"] {
   color: white;
 }
 
+.dg_section {
+   padding: 0; 
+  position: relative;
+}
