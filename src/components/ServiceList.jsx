@@ -77,21 +77,24 @@ const ServiceList = () => {
 
   return (
     <React.Fragment>
-      <Search onChange={onHandleSearch} />
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div>
+        <div className="container">
           <div>
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
               onChange={onHandleChange}
               checked={isChecked}
+              isExpanded={false}
             />
           </div>
+
           <div>
-            {/* <CheckBox onChange={onHandleChange} checked={isChecked} /> */}
+            <div>
+              <Search onChange={onHandleSearch} />
+            </div>
             {searchItemFound ? (
               <div>
                 <div className="flexItem">
