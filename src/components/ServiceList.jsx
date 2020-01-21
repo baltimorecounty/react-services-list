@@ -36,7 +36,7 @@ const ServiceList = () => {
     <div>
       <div style={flex}>
         <i
-          className="fas fa-star"
+          className="fas fa-star dg_popular_star"
           aria-hidden="true"
           style={MostPopularServiceIconStyles}
         ></i>

@@ -6,6 +6,11 @@
   margin: 40px 0 0;
 }
 
-.dg_icon-link:hover .dg_icon-link_footer-text {
+.dg_icon-link .dg_popular_star {
+  color: gray;
+}
+
+.dg_icon-link:hover .dg_icon-link_footer-text,
+.dg_icon-link:hover .dg_popular_star {
   color: white;
 }
