@@ -1,6 +1,6 @@
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ServiceIconLink from "../components/ServiceIconLink";
 import useServices from "../hooks/useServices";
 import CheckBox from "./CheckBox";
@@ -8,7 +8,7 @@ import Search from "./Search";
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
-  const [isChecked, setChecked] = useState(0);
+  const [isChecked, setChecked] = useState(false);
   const [searchedItems, setSearchedItems] = useState([]);
   const [searchText, setSearchText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(0);
@@ -28,29 +28,34 @@ const ServiceList = () => {
 
   const checkCondition = (checkedVal, searchText) => {
     let checkedItems = [];
+    const searchTextLength = searchText.length > 0;
     checkedItems = checkedVal
-      ? searchText.length > 0
+      ? searchTextLength
         ? filterItems(serviceItems.filter(filterByPopularity), searchText)
         : serviceItems.filter(filterByPopularity)
-      : searchText.length > 0
+      : searchTextLength
       ? filterItems(serviceItems, searchText)
       : [];
 
     setSearchedItems(checkedItems);
   };
+const settingFiltering=(searchText, checkedValue)=>{
+  setIsFiltering(searchText=== 0 && checkedValue === false ? 0 : 1);
+}
+
   const onHandleChange = item => {
-    const checkedVal = item.target.checked;
-    setChecked(checkedVal ? 1 : 0);
-    setIsFiltering(searchText.length === 0 && checkedVal === false ? 0 : 1);
-    checkCondition(checkedVal, searchText);
+    const checkedValue = item.target.checked;
+    setChecked(checkedValue ? true : false);
+    settingFiltering(searchText.length , checkedValue)
+    checkCondition(checkedValue, searchText);
   };
 
   const onHandleSearch = event => {
-    const checkedVal = isChecked;
+    const checkedValue = isChecked;
     const searchText = event.target.value;
-    setIsFiltering(searchText.length === 0 && checkedVal === 0 ? 0 : 1);
+    settingFiltering(searchText.length , checkedValue)
     setSearchText(searchText);
-    checkCondition(checkedVal, searchText);
+    checkCondition(checkedValue, searchText);
   };
 
   if (hasError) {
@@ -65,7 +70,7 @@ const ServiceList = () => {
   }
 
   let showing = isFiltering === 1 && searchedItems.length === 0 ? false : true;
-
+ 
   return (
     <React.Fragment>
       <Search onChange={onHandleSearch} />
