@@ -84,7 +84,10 @@ const ServiceList = () => {
         <p>Loading Baltimore County services...</p>
       ) : (
         <div className="container">
-          <div style={CollapseContainer}>
+          <div className="col-md-4 col-sm-12">
+          <div >
+            <section className="dg_section">
+              <div className="dg_section__content">
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
@@ -92,6 +95,9 @@ const ServiceList = () => {
               checked={isChecked}
               isExpanded={false}
             />
+            </div>
+            </section>
+          </div>
           </div>
           <div>
             <div>

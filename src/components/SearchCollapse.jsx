@@ -6,6 +6,7 @@ const SearchCollapse = props => {
   const { id, header, onChange, isChecked, isExpanded } = props;
   console.log(props);
   return (
+    <div className="dg_accordion">
     <Collapse id={id} header={header}>
       <CheckBox
         onChange={onChange}
@@ -13,6 +14,7 @@ const SearchCollapse = props => {
         isExpanded={isExpanded}
       />
     </Collapse>
+    </div>
   );
 };
 

@@ -17,10 +17,11 @@ let LegendText = {
   fontWeight: "900"
 };
 
-let CollapseContainer = {
-  width: "100%",
-  marginRight: "50px"
-};
+ let CollapseContainer = {
+   width: "100%",
+   marginRight: "50px",
+   position:"relative"
+ };
 
 export {
   MostPopularServiceIconStyles,
