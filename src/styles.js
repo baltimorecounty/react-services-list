@@ -17,4 +17,14 @@ let LegendText = {
   fontWeight: "900"
 };
 
-export { MostPopularServiceIconStyles, SetAbsolutePosition, LegendText };
+let CollapseContainer = {
+  width: "100%",
+  marginRight: "50px"
+};
+
+export {
+  MostPopularServiceIconStyles,
+  SetAbsolutePosition,
+  LegendText,
+  CollapseContainer
+};

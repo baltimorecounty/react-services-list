@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
 import SearchCollapse from "./SearchCollapse";
 import useServices from "../hooks/useServices";
-import { MostPopularServiceIconStyles, LegendText } from "../styles";
+import {
+  MostPopularServiceIconStyles,
+  LegendText,
+  CollapseContainer
+} from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
@@ -80,7 +84,7 @@ const ServiceList = () => {
         <p>Loading Baltimore County services...</p>
       ) : (
         <div className="container">
-          <div>
+          <div style={CollapseContainer}>
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
