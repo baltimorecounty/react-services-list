@@ -13,10 +13,7 @@ const CheckBox = props => {
       <div className="container">
         <div className="flexItem">
           <i className="fas fa-star" aria-hidden="true"    style={MostPopularServiceIconStyles}></i> 
-          
           <p style={legendText}> - Indicates a Most Popular Service</p>
-          
-         
          </div>
         <div className="flexItem"> 
           <div style={legendText}>Sort by: </div>
