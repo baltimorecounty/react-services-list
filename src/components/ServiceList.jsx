@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
 import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import useServices from "../hooks/useServices";
-import {
-  MostPopularServiceIconStyles,
-  LegendText,
-  SearchContainer
-} from "../styles";
+import { MostPopularServiceIconStyles, LegendText } from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
@@ -92,7 +88,7 @@ const ServiceList = () => {
             />
           </div>
           <div className="col-9">
-            <div style={SearchContainer}>
+            <div>
               <Search onChange={onHandleSearch} />
             </div>
             {searchItemFound ? (

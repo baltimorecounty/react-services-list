@@ -19,13 +19,4 @@ let LegendText = {
   fontWeight: "900"
 };
 
-let SearchContainer = {
-  //marginBottom: "50px"
-};
-
-export {
-  MostPopularServiceIconStyles,
-  SetAbsolutePosition,
-  LegendText,
-  SearchContainer
-};
+export { MostPopularServiceIconStyles, SetAbsolutePosition, LegendText };
