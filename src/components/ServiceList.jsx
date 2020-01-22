@@ -48,11 +48,10 @@ const ServiceList = () => {
   };
 
   const handleTextInputFilterChange = event => {
-    const checkedValue = isMostPopular;
     const searchText = event.target.value;
-    setIsFiltering(searchText.length > 0 || checkedValue);
+    setIsFiltering(searchText.length > 0 || isMostPopular);
     setFilterText(searchText);
-    checkCondition(checkedValue, searchText);
+    checkCondition(isMostPopular, searchText);
   };
 
   if (hasError) {
