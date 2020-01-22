@@ -10,13 +10,6 @@
 label {
   display: inline;
 }
-input[type="checkbox"] {
-  margin-top: 10px;
-  bottom: 1px;
-  width: 50px;
-  -webkit-appearance: checkbox;
-  outline: none;
-}
 
 .dg_service_counter {
   text-align: right;
@@ -44,13 +37,4 @@ input[type="checkbox"] {
 .dg_section {
   padding: 0;
   position: relative;
-}
-
-@media screen and (max-width: 768px) {
-  .dg_dynamic_search_container {
-    display: inline;
-  }
-  .col-3 {
-    max-width: 75%;
-  }
 }

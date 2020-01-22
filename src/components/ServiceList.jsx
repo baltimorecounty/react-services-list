@@ -77,8 +77,8 @@ const ServiceList = () => {
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div className="row dg_dynamic_search_container">
-          <div className="col-3">
+        <div className="row">
+          <div className="col-md-3 col-xs-12">
             <PopularityFilterCollapse
               header="Categories"
               id="Popular-filter"
