@@ -1,6 +1,7 @@
 const MostPopularServiceIconStyles = {
   fontSize: "25px",
-  textAlign: "left"
+  textAlign: "left",
+  marginTop: "80px"
 };
 
 const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
@@ -14,18 +15,17 @@ const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
 let LegendText = {
   fontStyle: "italic",
   marginLeft: "5px",
+  marginTop: "80px",
   fontWeight: "900"
 };
 
- let CollapseContainer = {
-   width: "100%",
-   marginRight: "50px",
-   position:"relative"
- };
+let SearchContainer = {
+  //marginBottom: "50px"
+};
 
 export {
   MostPopularServiceIconStyles,
   SetAbsolutePosition,
   LegendText,
-  CollapseContainer
+  SearchContainer
 };

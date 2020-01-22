@@ -1,22 +1,16 @@
 import React from "react";
+import { TextInput } from "@baltimorecounty/dotgov-components";
 
-const Search = props => (
-  <form className="dg_search-container" id="search-form">
-    <label htmlFor="main-search" className="visuallyhidden">
-      Search:
-    </label>
-    <input
-      className="dg_search-input"
-      id="main-search"
-      type="text"
-      onChange={props.onChange}
+const Search = props => {
+  const { onChange } = props;
+  return (
+    <TextInput
+      id="full-name"
+      label="Search for services"
       placeholder="Search for services and more..."
-      autoComplete="off"
-    ></input>
-    <button className="dg_search-btn" type="submit">
-      <i className="fas fa-search" aria-hidden="true"></i>
-    </button>
-  </form>
-);
+      onChange={onChange}
+    />
+  );
+};
 
 export default Search;

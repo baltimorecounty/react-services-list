@@ -2,9 +2,13 @@ import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
 import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
-import FilterCollapse from "./FilterCollapse";
+import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import useServices from "../hooks/useServices";
-import { MostPopularServiceIconStyles, LegendText } from "../styles";
+import {
+  MostPopularServiceIconStyles,
+  LegendText,
+  SearchContainer
+} from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
@@ -81,7 +85,7 @@ const ServiceList = () => {
       ) : (
         <div className="row dg_dynamic_search_container">
           <div className="col-3">
-            <FilterCollapse
+            <PopularityFilterCollapse
               header="Categories"
               id="PopularSearches"
               onChange={onHandleChange}
@@ -90,7 +94,7 @@ const ServiceList = () => {
             />
           </div>
           <div className="col-9">
-            <div>
+            <div style={SearchContainer}>
               <Search onChange={onHandleSearch} />
             </div>
             {searchItemFound ? (

@@ -1,20 +1,20 @@
 import React from "react";
-import { Collapse } from "@baltimorecounty/dotgov-components";
-import PopularityFilterCheckBox from "./PopularityFilterCheckBox";
+import { Collapse, Checkbox } from "@baltimorecounty/dotgov-components";
 
-const FilterCollapse = props => {
+const PopularityFilterCollapse = props => {
   const { id, header, onChange, isChecked, isExpanded } = props;
   return (
     <div className="dg_accordion">
       <Collapse id={id} header={header}>
-        <PopularityFilterCheckBox
+        <Checkbox
           onChange={onChange}
           checked={isChecked}
           isExpanded={isExpanded}
+          label="Show popular services"
         />
       </Collapse>
     </div>
   );
 };
 
-export default FilterCollapse;
+export default PopularityFilterCollapse;
