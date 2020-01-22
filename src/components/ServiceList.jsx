@@ -84,14 +84,13 @@ const ServiceList = () => {
             />
           </div>
           <div className="col-md-9 col-xs-12">
-            <div>
-              <TextInput
-                id="full-name"
-                label="Search for services"
-                placeholder="Search for services and more..."
-                onChange={handleTextInputFilterChange}
-              />
-            </div>
+            <TextInput
+              id="full-name"
+              label="Search for services"
+              placeholder="Search for services and more..."
+              onChange={handleTextInputFilterChange}
+            />
+
             {hasFilteredResults ? (
               <div>
                 <ListLegend
