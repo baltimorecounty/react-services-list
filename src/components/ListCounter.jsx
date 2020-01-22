@@ -1,11 +1,11 @@
 import React from "react";
 
 const ListCounter = props => {
-  const { currentcount, totalcount } = props;
+  const { count, total } = props;
 
   return (
     <div className="dg_service_counter">
-      <p>{`Showing ${currentcount} of ${totalcount} services`}</p>
+      <p>{`Showing ${count} of ${total} services`}</p>
     </div>
   );
 };

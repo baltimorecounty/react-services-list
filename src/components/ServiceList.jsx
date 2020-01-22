@@ -94,8 +94,8 @@ const ServiceList = () => {
             {hasFilteredResults ? (
               <div>
                 <ListLegend
-                  legendicon="fas fa-star"
-                  legendtext="- Indicates a Most Popular Service"
+                  icon="fas fa-star"
+                  text="- Indicates a Most Popular Service"
                 />
 
                 <div className="row">
@@ -114,12 +114,12 @@ const ServiceList = () => {
                   />
                 </div>
                 <ListCounter
-                  currentcount={
+                  count={
                     filteredItems.length === 0
                       ? serviceItems.length
                       : filteredItems.length
                   }
-                  totalcount={serviceItems.length}
+                  total={serviceItems.length}
                 />
               </div>
             ) : (
