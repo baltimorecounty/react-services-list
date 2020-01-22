@@ -8,7 +8,7 @@ import ListLegend from "./ListLegend";
 import ListCounter from "./ListCounter";
 import { TextInput } from "@baltimorecounty/dotgov-components";
 
-const filterItems = (services, searchText) => {
+const filterByTextInput = (services, searchText) => {
   return services.filter(item => {
     const { name, department } = item;
     return (
@@ -27,15 +27,15 @@ const ServiceList = () => {
   const [filterText, setFilterText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
 
-  const checkCondition = (checkedVal, searchText) => {
+  const filterServiceList = (checkedVal, searchText) => {
     let checkedItems = [];
-    const searchTextLength = searchText.length > 0;
+
     checkedItems = checkedVal
-      ? searchTextLength
-        ? filterItems(serviceItems.filter(filterByPopularity), searchText)
+      ? searchText.length > 0
+        ? filterByTextInput(serviceItems.filter(filterByPopularity), searchText)
         : serviceItems.filter(filterByPopularity)
-      : searchTextLength
-      ? filterItems(serviceItems, searchText)
+      : searchText.length > 0
+      ? filterByTextInput(serviceItems, searchText)
       : [];
 
     setFilteredItems(checkedItems);
@@ -45,14 +45,14 @@ const ServiceList = () => {
     const { checked } = changeEvent.target;
     setMostPopular(checked);
     setIsFiltering(filterText.length > 0 || checked);
-    checkCondition(checked, filterText);
+    filterServiceList(checked, filterText);
   };
 
   const handleTextInputFilterChange = changeEvent => {
     const { value } = changeEvent.target;
     setIsFiltering(value.length > 0 || isMostPopular);
     setFilterText(value);
-    checkCondition(isMostPopular, value);
+    filterServiceList(isMostPopular, value);
   };
 
   if (hasError) {
