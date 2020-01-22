@@ -4,16 +4,15 @@ import CheckBox from "./CheckBox";
 
 const SearchCollapse = props => {
   const { id, header, onChange, isChecked, isExpanded } = props;
-  console.log(props);
   return (
     <div className="dg_accordion">
-    <Collapse id={id} header={header}>
-      <CheckBox
-        onChange={onChange}
-        checked={isChecked}
-        isExpanded={isExpanded}
-      />
-    </Collapse>
+      <Collapse id={id} header={header}>
+        <CheckBox
+          onChange={onChange}
+          checked={isChecked}
+          isExpanded={isExpanded}
+        />
+      </Collapse>
     </div>
   );
 };
