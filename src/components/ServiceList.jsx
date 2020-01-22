@@ -1,11 +1,24 @@
 import { Alert } from "@baltimorecounty/dotgov-components";
-import FilterList from "../components/FilterList";
+import FilterList from "./FilterList";
 import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
 import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import useServices from "../hooks/useServices";
-import { MostPopularServiceIconStyles } from "../styles";
+import ListLegend from "./ListLegend";
+import ListCounter from "./ListCounter";
 import { TextInput } from "@baltimorecounty/dotgov-components";
+
+const filterItems = (services, searchText) => {
+  return services.filter(item => {
+    const { name, department } = item;
+    return (
+      name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+      department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    );
+  });
+};
+
+const filterByPopularity = item => item.rank > 0;
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
@@ -13,18 +26,6 @@ const ServiceList = () => {
   const [filteredItems, setFilteredItems] = useState([]);
   const [filterText, setFilterText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
-
-  const filterItems = (services, searchText) => {
-    return services.filter(item => {
-      const { name, department } = item;
-      return (
-        name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-        department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
-      );
-    });
-  };
-
-  const filterByPopularity = item => item.rank > 0;
 
   const checkCondition = (checkedVal, searchText) => {
     let checkedItems = [];
@@ -40,18 +41,18 @@ const ServiceList = () => {
     setFilteredItems(checkedItems);
   };
 
-  const handleIsPopularFilterChange = item => {
-    const checkedValue = item.target.checked;
-    setMostPopular(checkedValue);
-    setIsFiltering(filterText.length > 0 || checkedValue);
-    checkCondition(checkedValue, filterText);
+  const handleIsPopularFilterChange = changeEvent => {
+    const { checked } = changeEvent.target;
+    setMostPopular(checked);
+    setIsFiltering(filterText.length > 0 || checked);
+    checkCondition(checked, filterText);
   };
 
-  const handleTextInputFilterChange = event => {
-    const searchText = event.target.value;
-    setIsFiltering(searchText.length > 0 || isMostPopular);
-    setFilterText(searchText);
-    checkCondition(isMostPopular, searchText);
+  const handleTextInputFilterChange = changeEvent => {
+    const { value } = changeEvent.target;
+    setIsFiltering(value.length > 0 || isMostPopular);
+    setFilterText(value);
+    checkCondition(isMostPopular, value);
   };
 
   if (hasError) {
@@ -65,8 +66,7 @@ const ServiceList = () => {
     );
   }
 
-  let searchItemFound =
-    isFiltering === true && filteredItems.length === 0 ? false : true;
+  const hasFilteredResults = !(isFiltering && filteredItems.length === 0);
 
   return (
     <React.Fragment>
@@ -92,19 +92,13 @@ const ServiceList = () => {
                 onChange={handleTextInputFilterChange}
               />
             </div>
-            {searchItemFound ? (
+            {hasFilteredResults ? (
               <div>
-                <div className="dg_legend_container">
-                  <i
-                    className="fas fa-star"
-                    aria-hidden="true"
-                    style={MostPopularServiceIconStyles}
-                  ></i>
-                  <p className="dg_legend_text">
-                    {" "}
-                    - Indicates a Most Popular Service
-                  </p>
-                </div>
+                <ListLegend
+                  legendicon="fas fa-star"
+                  legendtext="- Indicates a Most Popular Service"
+                />
+
                 <div className="row">
                   <FilterList
                     items={
@@ -120,13 +114,14 @@ const ServiceList = () => {
                     )}
                   />
                 </div>
-                <div className="dg_service_counter">
-                  <p>{`Showing ${
+                <ListCounter
+                  currentcount={
                     filteredItems.length === 0
                       ? serviceItems.length
                       : filteredItems.length
-                  } of ${serviceItems.length} services`}</p>
-                </div>
+                  }
+                  totalcount={serviceItems.length}
+                />
               </div>
             ) : (
               "Sorry, no services match your search criteria. Please change your search term and try again"

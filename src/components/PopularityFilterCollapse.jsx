@@ -3,6 +3,7 @@ import { Collapse, Checkbox } from "@baltimorecounty/dotgov-components";
 
 const PopularityFilterCollapse = props => {
   const { id, header, onChange, isChecked, isExpanded } = props;
+
   return (
     <Collapse id={id} header={header}>
       <Checkbox
