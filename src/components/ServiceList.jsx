@@ -5,7 +5,7 @@ import ServiceIconLink from "./ServiceIconLink";
 import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import useServices from "../hooks/useServices";
 import { MostPopularServiceIconStyles, LegendText } from "../styles";
-import Search from "./Search";
+import { TextInput } from "@baltimorecounty/dotgov-components";
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
@@ -89,7 +89,12 @@ const ServiceList = () => {
           </div>
           <div className="col-9">
             <div>
-              <Search onChange={onHandleSearch} />
+              <TextInput
+                id="full-name"
+                label="Search for services"
+                placeholder="Search for services and more..."
+                onChange={onHandleSearch}
+              />
             </div>
             {searchItemFound ? (
               <div>
