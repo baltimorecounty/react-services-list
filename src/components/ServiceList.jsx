@@ -6,8 +6,7 @@ import SearchCollapse from "./SearchCollapse";
 import useServices from "../hooks/useServices";
 import {
   MostPopularServiceIconStyles,
-  LegendText,
-  CollapseContainer
+  LegendText
 } from "../styles";
 import Search from "./Search";
 
@@ -78,17 +77,13 @@ const ServiceList = () => {
   let searchItemFound =
     isFiltering === true && searchedItems.length === 0 ? false : true;
 
-  let maxWidth = {
-    width: "100%"
-  };
-
   return (
     <React.Fragment>
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div className="container">
-          <div className="CollapseContainer">
+        <div className="row">
+          <div className="col-3">
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
@@ -97,7 +92,7 @@ const ServiceList = () => {
               isExpanded={false}
             />
           </div>
-          <div style={maxWidth}>
+          <div className="col-9">
             <div>
               <Search onChange={onHandleSearch} />
             </div>

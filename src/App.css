@@ -1,13 +1,3 @@
-.container {
-  max-width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding-right: 0px;
-  padding-left: 0px;
-  margin-top: 10px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
 .flexItem {
   flex-direction: row;
   display: flex;
@@ -64,10 +54,4 @@ input[type="checkbox"] {
 .dg_section {
   padding: 0;
   position: relative;
-}
-
-@media screen and (max-width: 576px) {
-  .container {
-    display: inline;
-  }
 }
