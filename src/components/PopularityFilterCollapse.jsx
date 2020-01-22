@@ -7,6 +7,8 @@ const PopularityFilterCollapse = props => {
     <div className="dg_accordion">
       <Collapse id={id} header={header}>
         <Checkbox
+          id={`${id}Checkbox`}
+          name={`${id}Checkbox`}
           onChange={onChange}
           checked={isChecked}
           isExpanded={isExpanded}

@@ -81,7 +81,7 @@ const ServiceList = () => {
           <div className="col-3">
             <PopularityFilterCollapse
               header="Categories"
-              id="PopularSearches"
+              id="Popular-filter"
               onChange={handleIsPopularFilterChange}
               checked={isMostPopular}
               isExpanded={false}
