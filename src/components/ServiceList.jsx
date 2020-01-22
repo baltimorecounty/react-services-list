@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
 import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import useServices from "../hooks/useServices";
-import { MostPopularServiceIconStyles, LegendText } from "../styles";
+import { MostPopularServiceIconStyles } from "../styles";
 import { TextInput } from "@baltimorecounty/dotgov-components";
 
 const ServiceList = () => {
@@ -98,13 +98,16 @@ const ServiceList = () => {
             </div>
             {searchItemFound ? (
               <div>
-                <div className="flexItem">
+                <div className="dg_legend_container">
                   <i
                     className="fas fa-star"
                     aria-hidden="true"
                     style={MostPopularServiceIconStyles}
                   ></i>
-                  <p style={LegendText}> - Indicates a Most Popular Service</p>
+                  <p className="dg_legend_text">
+                    {" "}
+                    - Indicates a Most Popular Service
+                  </p>
                 </div>
                 <div className="row">
                   <FilterList
