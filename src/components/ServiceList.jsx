@@ -1,12 +1,15 @@
-import { LegendText, MostPopularServiceIconStyles } from "../styles";
-import React, { useState } from "react";
-
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
-import Search from "./Search";
-import SearchCollapse from "./SearchCollapse";
+import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
+import SearchCollapse from "./SearchCollapse";
 import useServices from "../hooks/useServices";
+import {
+  MostPopularServiceIconStyles,
+  LegendText,
+  CollapseContainer
+} from "../styles";
+import Search from "./Search";
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
@@ -75,13 +78,17 @@ const ServiceList = () => {
   let searchItemFound =
     isFiltering === true && searchedItems.length === 0 ? false : true;
 
+  let maxWidth = {
+    width: "100%"
+  };
+
   return (
     <React.Fragment>
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div className="row">
-          <div className="col-3">
+        <div className="container">
+          <div className="CollapseContainer">
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
@@ -90,7 +97,7 @@ const ServiceList = () => {
               isExpanded={false}
             />
           </div>
-          <div className="col-9">
+          <div style={maxWidth}>
             <div>
               <Search onChange={onHandleSearch} />
             </div>
