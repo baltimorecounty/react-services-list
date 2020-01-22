@@ -2,19 +2,16 @@ import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "../components/FilterList";
 import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
-import SearchCollapse from "./SearchCollapse";
+import FilterCollapse from "./FilterCollapse";
 import useServices from "../hooks/useServices";
-import {
-  MostPopularServiceIconStyles,
-  LegendText
-} from "../styles";
+import { MostPopularServiceIconStyles, LegendText } from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
-  const [isChecked, setChecked] = useState(false);
-  const [searchedItems, setSearchedItems] = useState([]);
-  const [searchText, setSearchText] = useState([]);
+  const [isMostPopular, setMostPopular] = useState(false);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [filterText, setFilterText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
 
   const filterItems = (services, searchText) => {
@@ -42,7 +39,7 @@ const ServiceList = () => {
       ? filterItems(serviceItems, searchText)
       : [];
 
-    setSearchedItems(checkedItems);
+    setFilteredItems(checkedItems);
   };
   const settingFiltering = (searchText, checkedValue) => {
     setIsFiltering(searchText === 0 && checkedValue === false ? false : true);
@@ -50,16 +47,16 @@ const ServiceList = () => {
 
   const onHandleChange = item => {
     const checkedValue = item.target.checked;
-    setChecked(checkedValue ? true : false);
-    settingFiltering(searchText.length, checkedValue);
-    checkCondition(checkedValue, searchText);
+    setMostPopular(checkedValue ? true : false);
+    settingFiltering(filterText.length, checkedValue);
+    checkCondition(checkedValue, filterText);
   };
 
   const onHandleSearch = event => {
-    const checkedValue = isChecked;
+    const checkedValue = isMostPopular;
     const searchText = event.target.value;
     settingFiltering(searchText.length, checkedValue);
-    setSearchText(searchText);
+    setFilterText(searchText);
     checkCondition(checkedValue, searchText);
   };
 
@@ -75,20 +72,20 @@ const ServiceList = () => {
   }
 
   let searchItemFound =
-    isFiltering === true && searchedItems.length === 0 ? false : true;
+    isFiltering === true && filteredItems.length === 0 ? false : true;
 
   return (
     <React.Fragment>
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
-        <div className="row">
+        <div className="row dg_dynamic_search_container">
           <div className="col-3">
-            <SearchCollapse
+            <FilterCollapse
               header="Categories"
               id="PopularSearches"
               onChange={onHandleChange}
-              checked={isChecked}
+              checked={isMostPopular}
               isExpanded={false}
             />
           </div>
@@ -109,23 +106,23 @@ const ServiceList = () => {
                 <div className="row">
                   <FilterList
                     items={
-                      searchedItems.length > 0 ? searchedItems : serviceItems
+                      filteredItems.length > 0 ? filteredItems : serviceItems
                     }
                     renderItem={props => (
                       <div
                         key={props.name.replace(/\s/, "-")}
                         className="d-flex col-lg-3 col-md-6 col-sm-6"
                       >
-                        <ServiceIconLink {...props} checked={isChecked} />
+                        <ServiceIconLink {...props} checked={isMostPopular} />
                       </div>
                     )}
                   />
                 </div>
                 <div className="dg_service_counter">
                   <p>{`Showing ${
-                    searchedItems.length === 0
+                    filteredItems.length === 0
                       ? serviceItems.length
-                      : searchedItems.length
+                      : filteredItems.length
                   } of ${serviceItems.length} services`}</p>
                 </div>
               </div>

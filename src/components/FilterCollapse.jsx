@@ -1,13 +1,13 @@
 import React from "react";
 import { Collapse } from "@baltimorecounty/dotgov-components";
-import CheckBox from "./CheckBox";
+import PopularityFilterCheckBox from "./PopularityFilterCheckBox";
 
-const SearchCollapse = props => {
+const FilterCollapse = props => {
   const { id, header, onChange, isChecked, isExpanded } = props;
   return (
     <div className="dg_accordion">
       <Collapse id={id} header={header}>
-        <CheckBox
+        <PopularityFilterCheckBox
           onChange={onChange}
           checked={isChecked}
           isExpanded={isExpanded}
@@ -17,4 +17,4 @@ const SearchCollapse = props => {
   );
 };
 
-export default SearchCollapse;
+export default FilterCollapse;
