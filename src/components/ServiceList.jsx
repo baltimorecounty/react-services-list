@@ -84,10 +84,10 @@ const ServiceList = () => {
         <p>Loading Baltimore County services...</p>
       ) : (
         <div className="container">
-          <div className="col-lg-3 col-md-3 col-sm-3">
-          <div >
-            <section className="dg_section">
-              <div className="dg_section__content">
+
+          <div className="CollapseContainer">
+             {/* <section className="dg_section"> 
+              <div className="dg_section__content">  */}
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
@@ -95,9 +95,9 @@ const ServiceList = () => {
               checked={isChecked}
               isExpanded={false}
             />
-            </div>
-            </section>
-          </div>
+             {/* </div> 
+             </section>  */}
+
           </div>
           <div>
             <div>

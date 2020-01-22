@@ -66,3 +66,9 @@ input[type="checkbox"] {
    padding: 0; 
   position: relative;
 }
+
+@media screen and (max-width: 576px) {
+  .container {
+    display: inline;
+  }
+}
