@@ -1,14 +1,13 @@
-import { Alert } from "@baltimorecounty/dotgov-components";	import { Alert } from "@baltimorecounty/dotgov-components";
-import FilterList from "../components/FilterList";	import FilterList from "../components/FilterList";
-import React, { useState } from "react";	import Search from "./Search";
-import ServiceIconLink from "./ServiceIconLink";	
-import SearchCollapse from "./SearchCollapse";	import SearchCollapse from "./SearchCollapse";
+import { Alert } from "@baltimorecounty/dotgov-components";
+import FilterList from "../components/FilterList";
+import React, { useState } from "react";
 import ServiceIconLink from "./ServiceIconLink";
-import useServices from "../hooks/useServices";	import useServices from "../hooks/useServices";
-import {	
-  MostPopularServiceIconStyles,	
-  LegendText	
-} from "../styles";	
+import SearchCollapse from "./SearchCollapse";
+import useServices from "../hooks/useServices";
+import {
+  MostPopularServiceIconStyles,
+  LegendText
+} from "../styles";
 import Search from "./Search";
 
 const ServiceList = () => {
