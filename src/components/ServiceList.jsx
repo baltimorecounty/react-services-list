@@ -39,21 +39,18 @@ const ServiceList = () => {
 
     setFilteredItems(checkedItems);
   };
-  const settingFiltering = (searchText, checkedValue) => {
-    setIsFiltering(searchText === 0 && checkedValue === false ? false : true);
-  };
 
   const handleIsPopularFilterChange = item => {
     const checkedValue = item.target.checked;
     setMostPopular(checkedValue);
-    settingFiltering(filterText.length, checkedValue);
+    setIsFiltering(filterText.length > 0 || checkedValue);
     checkCondition(checkedValue, filterText);
   };
 
-  const onHandleSearch = event => {
+  const handleTextInputFilterChange = event => {
     const checkedValue = isMostPopular;
     const searchText = event.target.value;
-    settingFiltering(searchText.length, checkedValue);
+    setIsFiltering(searchText.length > 0 || checkedValue);
     setFilterText(searchText);
     checkCondition(checkedValue, searchText);
   };
@@ -93,7 +90,7 @@ const ServiceList = () => {
                 id="full-name"
                 label="Search for services"
                 placeholder="Search for services and more..."
-                onChange={onHandleSearch}
+                onChange={handleTextInputFilterChange}
               />
             </div>
             {searchItemFound ? (
