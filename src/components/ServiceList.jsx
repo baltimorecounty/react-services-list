@@ -78,16 +78,17 @@ const ServiceList = () => {
   let searchItemFound =
     isFiltering === true && searchedItems.length === 0 ? false : true;
 
+  let maxWidth = {
+    width: "100%"
+  };
+
   return (
     <React.Fragment>
       {isLoading ? (
         <p>Loading Baltimore County services...</p>
       ) : (
         <div className="container">
-
           <div className="CollapseContainer">
-             {/* <section className="dg_section"> 
-              <div className="dg_section__content">  */}
             <SearchCollapse
               header="Categories"
               id="PopularSearches"
@@ -95,11 +96,8 @@ const ServiceList = () => {
               checked={isChecked}
               isExpanded={false}
             />
-             {/* </div> 
-             </section>  */}
-
           </div>
-          <div>
+          <div style={maxWidth}>
             <div>
               <Search onChange={onHandleSearch} />
             </div>

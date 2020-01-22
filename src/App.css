@@ -2,7 +2,6 @@
   max-width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-right: 0px;
   padding-left: 0px;
   margin-top: 10px;
@@ -63,7 +62,7 @@ input[type="checkbox"] {
 }
 
 .dg_section {
-   padding: 0; 
+  padding: 0;
   position: relative;
 }
 
