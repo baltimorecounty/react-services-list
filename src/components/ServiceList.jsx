@@ -87,7 +87,7 @@ const ServiceList = () => {
               isExpanded={false}
             />
           </div>
-          <div className="col-9">
+          <div className="col-md-9 col-xs-12">
             <div>
               <TextInput
                 id="full-name"
