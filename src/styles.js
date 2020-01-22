@@ -1,7 +1,6 @@
 const MostPopularServiceIconStyles = {
   fontSize: "25px",
-  textAlign: "left",
-  marginTop: "80px"
+  textAlign: "left"
 };
 
 const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
@@ -15,7 +14,6 @@ const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
 let LegendText = {
   fontStyle: "italic",
   marginLeft: "5px",
-  marginTop: "80px",
   fontWeight: "900"
 };
 
