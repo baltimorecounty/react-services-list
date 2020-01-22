@@ -28,9 +28,7 @@ const ServiceList = () => {
     });
   };
 
-  const filterByPopularity = item => {
-    return item.rank > 0 ? true : false;
-  };
+  const filterByPopularity = item => item.rank > 0;
 
   const checkCondition = (checkedVal, searchText) => {
     let checkedItems = [];
@@ -49,9 +47,9 @@ const ServiceList = () => {
     setIsFiltering(searchText === 0 && checkedValue === false ? false : true);
   };
 
-  const onHandleChange = item => {
+  const handleIsPopularFilterChange = item => {
     const checkedValue = item.target.checked;
-    setMostPopular(checkedValue ? true : false);
+    setMostPopular(checkedValue);
     settingFiltering(filterText.length, checkedValue);
     checkCondition(checkedValue, filterText);
   };
@@ -88,7 +86,7 @@ const ServiceList = () => {
             <PopularityFilterCollapse
               header="Categories"
               id="PopularSearches"
-              onChange={onHandleChange}
+              onChange={handleIsPopularFilterChange}
               checked={isMostPopular}
               isExpanded={false}
             />
