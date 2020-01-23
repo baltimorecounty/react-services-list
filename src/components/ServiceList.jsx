@@ -9,9 +9,9 @@ import ListCounter from "./ListCounter";
 import { TextInput } from "@baltimorecounty/dotgov-components";
 
 const filterByTextInput = (item, searchText) => {
-  return item.filter(
+  return (
     item.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-      item.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    item.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
   );
 };
 
@@ -23,12 +23,9 @@ const ServiceList = () => {
   const [isFiltering, setIsFiltering] = useState(false);
 
   const filterServiceList = (shouldShowMostPopularServices, searchText) => {
-    console.log(searchText);
     const items = [...serviceItems]
       .filter(item => !shouldShowMostPopularServices || item.rank > 0)
       .filter(item => !searchText.trim || filterByTextInput(item, searchText));
-
-    console.log(items);
     setFilteredItems(items);
   };
 
