@@ -8,17 +8,12 @@ import ListLegend from "./ListLegend";
 import ListCounter from "./ListCounter";
 import { TextInput } from "@baltimorecounty/dotgov-components";
 
-const filterByTextInput = (services, searchText) => {
-  return services.filter(item => {
-    const { name, department } = item;
-    return (
-      name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-      department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
-    );
-  });
+const filterByTextInput = (item, searchText) => {
+  return item.filter(
+    item.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
+      item.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+  );
 };
-
-const filterByPopularity = item => item.rank > 0;
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
@@ -27,18 +22,14 @@ const ServiceList = () => {
   const [filterText, setFilterText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
 
-  const filterServiceList = (checkedVal, searchText) => {
-    let checkedItems = [];
+  const filterServiceList = (shouldShowMostPopularServices, searchText) => {
+    console.log(searchText);
+    const items = [...serviceItems]
+      .filter(item => !shouldShowMostPopularServices || item.rank > 0)
+      .filter(item => !searchText.trim || filterByTextInput(item, searchText));
 
-    checkedItems = checkedVal
-      ? searchText.length > 0
-        ? filterByTextInput(serviceItems.filter(filterByPopularity), searchText)
-        : serviceItems.filter(filterByPopularity)
-      : searchText.length > 0
-      ? filterByTextInput(serviceItems, searchText)
-      : [];
-
-    setFilteredItems(checkedItems);
+    console.log(items);
+    setFilteredItems(items);
   };
 
   const handleIsPopularFilterChange = changeEvent => {
@@ -76,11 +67,10 @@ const ServiceList = () => {
         <div className="row">
           <div className="col-md-3 col-xs-12">
             <PopularityFilterCollapse
-              header="Categories"
+              header="Filter"
               id="Popular-filter"
               onChange={handleIsPopularFilterChange}
               checked={isMostPopular}
-              isExpanded={false}
             />
           </div>
           <div className="col-md-9 col-xs-12">
