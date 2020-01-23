@@ -2,7 +2,7 @@ import React from "react";
 import { Collapse, Checkbox } from "@baltimorecounty/dotgov-components";
 
 const PopularityFilterCollapse = props => {
-  const { id, header, onChange, isChecked, value } = props;
+  const { id, header, onChange, checked } = props;
 
   return (
     <Collapse id={id} header={header}>
@@ -10,9 +10,9 @@ const PopularityFilterCollapse = props => {
         id={`${id}Checkbox`}
         name={`${id}Checkbox`}
         onChange={onChange}
-        checked={isChecked}
+        checked={checked}
         label="Show popular services"
-        value={value}
+        value={`${checked}`}
       />
     </Collapse>
   );
