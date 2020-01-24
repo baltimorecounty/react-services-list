@@ -1,3 +1,19 @@
+.dg_legend_container {
+  flex-direction: row;
+  display: flex;
+  flex-wrap: nowrap;
+  color: #666;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 80px;
+}
+
+.dg_service_counter {
+  text-align: right;
+  font-style: italic;
+  color: gray;
+}
+
 .dg_icon-link_footer-text {
   transition: all 0.5s ease;
   transition-property: color, border;
@@ -13,4 +29,10 @@
 .dg_icon-link:hover .dg_icon-link_footer-text,
 .dg_icon-link:hover .dg_popular_star {
   color: white;
+}
+
+.dg_legend_text {
+  font-style: italic;
+  margin-left: 5px;
+  font-weight: 900;
 }
