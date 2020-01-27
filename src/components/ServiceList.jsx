@@ -110,7 +110,10 @@ const ServiceList = () => {
                 />
               </div>
             ) : (
-              "Sorry, no services match your search criteria. Please change your search term and try again"
+              <p className="dg_search_noresults">
+                Sorry, no services match your search criteria. Please change
+                your search term and try again
+              </p>
             )}
           </div>
         </div>

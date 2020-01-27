@@ -36,3 +36,8 @@
   margin-left: 5px;
   font-weight: 900;
 }
+
+.dg_search_noresults,
+.dg_search_header {
+  margin-top: 30px;
+}
