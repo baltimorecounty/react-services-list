@@ -70,7 +70,7 @@ const ServiceList = () => {
               checked={isMostPopular}
             />
           </div>
-          <div className="col-md-9 col-xs-12 dg_search_header">
+          <div className="col-md-9 col-xs-12">
             <TextInput
               id="full-name"
               label="Search for services"
