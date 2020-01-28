@@ -110,7 +110,7 @@ const ServiceList = () => {
                 />
               </div>
             ) : (
-              <p className="dg_search_noresults">
+              <p>
                 Sorry, no services match your search criteria. Please change
                 your search term and try again
               </p>
