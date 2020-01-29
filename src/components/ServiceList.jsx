@@ -79,12 +79,25 @@ const ServiceList = () => {
             />
 
             {hasFilteredResults ? (
-              <div>
-                <ListLegend
-                  icon="fas fa-star"
-                  text="- Indicates a Most Popular Service"
-                />
-
+              <React.Fragment>
+                <div className="row">
+                  <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
+                    <ListLegend
+                      icon="fas fa-star"
+                      text="- Indicates a Most Popular Service"
+                    />
+                  </div>
+                  <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
+                    <ListCounter
+                      count={
+                        filteredItems.length === 0
+                          ? serviceItems.length
+                          : filteredItems.length
+                      }
+                      total={serviceItems.length}
+                    />
+                  </div>
+                </div>
                 <div className="row">
                   <FilterList
                     items={
@@ -100,15 +113,7 @@ const ServiceList = () => {
                     )}
                   />
                 </div>
-                <ListCounter
-                  count={
-                    filteredItems.length === 0
-                      ? serviceItems.length
-                      : filteredItems.length
-                  }
-                  total={serviceItems.length}
-                />
-              </div>
+              </React.Fragment>
             ) : (
               <p>
                 Sorry, no services match your search criteria. Please change
