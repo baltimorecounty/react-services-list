@@ -81,13 +81,13 @@ const ServiceList = () => {
             {hasFilteredResults ? (
               <div>
                 <div className="row">
-                  <div class="col-md-6 col-xs-12 order-xs-first order-md-last">
+                  <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
                     <ListLegend
                       icon="fas fa-star"
                       text="- Indicates a Most Popular Service"
                     />
                   </div>
-                  <div class="col-md-6 col-xs-12 order-xs-last order-md-first ">
+                  <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
                     <ListCounter
                       count={
                         filteredItems.length === 0
