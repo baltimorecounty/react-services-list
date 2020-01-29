@@ -79,7 +79,7 @@ const ServiceList = () => {
             />
 
             {hasFilteredResults ? (
-              <div>
+              <React.Fragment>
                 <div className="row">
                   <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
                     <ListLegend
@@ -113,7 +113,7 @@ const ServiceList = () => {
                     )}
                   />
                 </div>
-              </div>
+              </React.Fragment>
             ) : (
               <p>
                 Sorry, no services match your search criteria. Please change
