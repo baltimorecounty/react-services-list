@@ -1,12 +1,13 @@
+import React, { useState } from "react";
+
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "./FilterList";
-import React, { useState } from "react";
-import ServiceIconLink from "./ServiceIconLink";
-import PopularityFilterCollapse from "./PopularityFilterCollapse";
-import useServices from "../hooks/useServices";
-import ListLegend from "./ListLegend";
 import ListCounter from "./ListCounter";
+import ListLegend from "./ListLegend";
+import PopularityFilterCollapse from "./PopularityFilterCollapse";
+import ServiceIconLink from "./ServiceIconLink";
 import { TextInput } from "@baltimorecounty/dotgov-components";
+import useServices from "../hooks/useServices";
 
 const filterByTextInput = (item, searchText) => {
   return (
@@ -106,7 +107,7 @@ const ServiceList = () => {
                     renderItem={props => (
                       <div
                         key={props.name.replace(/\s/, "-")}
-                        className="d-flex col-lg-3 col-md-6 col-sm-6"
+                        className="d-flex col-lg-4 col-md-6 col-sm-6"
                       >
                         <ServiceIconLink {...props} checked={isMostPopular} />
                       </div>
