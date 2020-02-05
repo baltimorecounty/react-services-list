@@ -26,7 +26,6 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
       flexDirection: "column",
       justifyContent: "space-between",
       position: "relative",
-      textTransform: "none",
       width: "100%"
     }}
   >
