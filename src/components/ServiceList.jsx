@@ -11,8 +11,9 @@ import useServices from "../hooks/useServices";
 
 const filterByTextInput = (item, searchText) => {
   return (
-    item.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1 ||
-    item.department.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+    item.name.toLowerCase().indexOf(searchText.trim().toLowerCase()) !== -1 ||
+    item.department.toLowerCase().indexOf(searchText.trim().toLowerCase()) !==
+      -1
   );
 };
 
