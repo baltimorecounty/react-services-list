@@ -30,7 +30,9 @@ const ServiceIconLink = ({ name, department, url, icon, rank }) => (
     }}
   >
     <div>
-      <p className="dg_icon-link_footer-text">{department}</p>
+      <p className="dg_icon-link_footer-text" style={{ textTransform: "none" }}>
+        {department}
+      </p>
       {rank > 0 && (
         <i
           className="fas fa-star dg_popular_star"
