@@ -1,4 +1,4 @@
-import { FilterService } from "./Filter";
+import { FilterServices } from "./Filter";
 
 const mockServices = [
   {
@@ -81,6 +81,17 @@ const mockServices = [
   }
 ];
 
-test.todo("should retrieve full card contents", () => {
-  const actual = FilterService(mockServices, null, "citations law office");
+test("should retrieve full card contents", () => {
+  const actual = FilterServices(mockServices, null, "j");
+  expect(actual.length).toEqual(2);
+});
+
+test("should retrieve full card contents", () => {
+  const actual = FilterServices(mockServices, null, "citations law office");
+  expect(actual.length).toEqual(1);
+});
+
+test("should retrieve full card contents with out of order text", () => {
+  const actual = FilterServices(mockServices, null, "law jury");
+  expect(actual.length).toEqual(1);
 });
