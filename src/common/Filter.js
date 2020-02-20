@@ -13,12 +13,12 @@ const FilterServices = (
     .filter(item => !shouldShowMostPopularServices || item.rank > 0)
     .filter(item => !searchText.trim || filterByTextInput(item, searchText));
 
-const generateWordMatchRegex = word => "(?=.*" + word + ")";
+const generateWordMatchRegexPattern = word => "(?=.*" + word + ")";
 
 const filterByTextInput = ({ name, department }, searchText) => {
   const searchWordsRegex = searchText
     .split(" ")
-    .map(field => generateWordMatchRegex(field))
+    .map(field => generateWordMatchRegexPattern(field))
     .join("");
   const fieldsAsString = [name, department].join(" ").toLowerCase();
   const isTextMatch =
