@@ -1,3 +1,9 @@
+/**
+ * Filters a list of services for the given filters
+ * @param {array} services list of services to filter
+ * @param {boolean} shouldShowMostPopularServices determines of whether you should show only popular services, null is possible
+ * @param {boolean} searchText search text
+ */
 const FilterServices = (
   services = [],
   shouldShowMostPopularServices,
