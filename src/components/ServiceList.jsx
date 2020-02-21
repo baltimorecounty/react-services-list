@@ -2,20 +2,13 @@ import React, { useState } from "react";
 
 import { Alert } from "@baltimorecounty/dotgov-components";
 import FilterList from "./FilterList";
+import { FilterServices } from "../common/Filter";
 import ListCounter from "./ListCounter";
 import ListLegend from "./ListLegend";
 import PopularityFilterCollapse from "./PopularityFilterCollapse";
 import ServiceIconLink from "./ServiceIconLink";
 import { TextInput } from "@baltimorecounty/dotgov-components";
 import useServices from "../hooks/useServices";
-
-const filterByTextInput = (item, searchText) => {
-  return (
-    item.name.toLowerCase().indexOf(searchText.trim().toLowerCase()) !== -1 ||
-    item.department.toLowerCase().indexOf(searchText.trim().toLowerCase()) !==
-      -1
-  );
-};
 
 const ServiceList = () => {
   const { hasError, serviceItems = [], isLoading } = useServices();
@@ -24,25 +17,18 @@ const ServiceList = () => {
   const [filterText, setFilterText] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
 
-  const filterServiceList = (shouldShowMostPopularServices, searchText) => {
-    const items = [...serviceItems]
-      .filter(item => !shouldShowMostPopularServices || item.rank > 0)
-      .filter(item => !searchText.trim || filterByTextInput(item, searchText));
-    setFilteredItems(items);
-  };
-
   const handleIsPopularFilterChange = changeEvent => {
     const { checked } = changeEvent.target;
     setMostPopular(checked);
     setIsFiltering(filterText.length > 0 || checked);
-    filterServiceList(checked, filterText);
+    setFilteredItems(FilterServices(serviceItems, checked, filterText));
   };
 
   const handleTextInputFilterChange = changeEvent => {
     const { value } = changeEvent.target;
     setIsFiltering(value.length > 0 || isMostPopular);
     setFilterText(value);
-    filterServiceList(isMostPopular, value);
+    setFilteredItems(FilterServices(serviceItems, isMostPopular, value));
   };
 
   if (hasError) {
