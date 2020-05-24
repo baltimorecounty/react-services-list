@@ -1,43 +1,28 @@
-import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
-import "./App.css";
-
 import { Config } from "@baltimorecounty/javascript-utilities";
+import { FilterList } from "@baltimorecounty/react-filter-list";
+import Filters from "./Filters";
 import React from "react";
-import ServiceList from "./components/ServiceList";
+import { Run } from "./Startup";
+import ServiceLink from "./components/ServiceLink";
 
-const { setConfig } = Config;
+const { getValue } = Config;
 
-const testApiRoot = "https://testservices.baltimorecountymd.gov/api";
-const prodApiRoot = "https://services.baltimorecountymd.gov/api";
-
-// HACK - the Config utiltiy does not account for beta.
-// TODO: This will need to be addressed when we get closer to launch
-const localApiRoot =
-  window.location.hostname.indexOf("beta") > -1
-    ? testApiRoot
-    : "//localhost:54727/api";
-
-const configValues = {
-  local: {
-    apiRoot: localApiRoot
-  },
-  development: {
-    apiRoot: testApiRoot
-  },
-  staging: {
-    apiRoot: testApiRoot
-  },
-  production: {
-    apiRoot: prodApiRoot
-  }
-};
-
-setConfig(configValues);
+Run();
 
 function App() {
   return (
     <div className="bc_services-list-app">
-      <ServiceList />
+      <FilterList
+        title="Baltimore County Services"
+        filters={Filters}
+        apiEndpoint={getValue("apiRoot")}
+        listContainerClassName="items row"
+        renderItem={(service) => (
+          <div key={service.id} className="col-lg-4 col-md-6 col-sm-6 d-flex">
+            <ServiceLink {...service} />
+          </div>
+        )}
+      />
     </div>
   );
 }
