@@ -18,6 +18,7 @@ function App() {
       <FilterList
         title="Baltimore County Services"
         filters={Filters}
+        staticFilters={[{ targetApiField: "recordsPerPage", value: 1000 }]}
         apiEndpoint={getValue("apiRoot")}
         listContainerClassName="items row"
         includeInputFilter={true}
