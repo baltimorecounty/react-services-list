@@ -1,6 +1,7 @@
 const MostPopularServiceIconStyles = {
+  color: "#C2C2C2",
   fontSize: "25px",
-  textAlign: "left"
+  textAlign: "left",
 };
 
 const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
@@ -8,7 +9,7 @@ const SetAbsolutePosition = ({ top, right, left, bottom }) => ({
   right,
   left,
   bottom,
-  position: "absolute"
+  position: "absolute",
 });
 
 export { MostPopularServiceIconStyles, SetAbsolutePosition };

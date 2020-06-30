@@ -1,42 +1,42 @@
 .dg_legend_container {
-  flex-direction: row;
-  display: flex;
-  flex-wrap: nowrap;
-  color: #666;
-  justify-content: flex-end;
-  align-items: flex-start;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: nowrap;
+    color: #666;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .dg_service_counter {
-  font-style: italic;
-  color: gray;
+    font-style: italic;
+    color: gray;
 }
 
 .dg_icon-link_footer-text {
-  transition: all 0.5s ease;
-  transition-property: color, border;
-  font-size: 0.9em;
-  font-style: italic;
-  margin: 40px 0 0;
+    transition: all 0.5s ease;
+    transition-property: color, border;
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 40px 0 0;
 }
 
 .dg_icon-link .dg_popular_star {
-  color: gray;
+    color: gray;
 }
 
 .dg_icon-link:hover .dg_icon-link_footer-text,
 .dg_icon-link:hover .dg_popular_star {
-  color: white;
+    color: white;
 }
 
 .dg_legend_text {
-  font-style: italic;
-  margin-left: 5px;
-  font-weight: 900;
+    font-style: italic;
+    margin-left: 5px;
+    font-weight: 900;
 }
 
 @media screen and (max-width: 992px) {
-  .dg_legend_container {
-    justify-content: flex-start;
-  }
+    .dg_legend_container {
+        justify-content: flex-start;
+    }
 }

@@ -1,43 +1,47 @@
-import "@baltimorecounty/dotgov-components/lib/styles/dotgov.min.css";
 import "./App.css";
 
 import { Config } from "@baltimorecounty/javascript-utilities";
+import { FilterList } from "@baltimorecounty/react-filter-list";
+import Filters from "./Filters";
+import ListLegend from "./components/ListLegend";
 import React from "react";
-import ServiceList from "./components/ServiceList";
+import { Run } from "./Startup";
+import ServiceLink from "./components/ServiceLink";
 
-const { setConfig } = Config;
+const { getValue } = Config;
 
-const testApiRoot = "https://testservices.baltimorecountymd.gov/api";
-const prodApiRoot = "https://services.baltimorecountymd.gov/api";
-
-// HACK - the Config utiltiy does not account for beta.
-// TODO: This will need to be addressed when we get closer to launch
-const localApiRoot =
-  window.location.hostname.indexOf("beta") > -1
-    ? testApiRoot
-    : "//localhost:54727/api";
-
-const configValues = {
-  local: {
-    apiRoot: localApiRoot
-  },
-  development: {
-    apiRoot: testApiRoot
-  },
-  staging: {
-    apiRoot: testApiRoot
-  },
-  production: {
-    apiRoot: prodApiRoot
-  }
-};
-
-setConfig(configValues);
+Run();
 
 function App() {
   return (
     <div className="bc_services-list-app">
-      <ServiceList />
+      <FilterList
+        title="Baltimore County Services"
+        filters={Filters}
+        staticFilters={[{ targetApiField: "recordsPerPage", value: 1000 }]}
+        apiEndpoint={getValue("apiRoot")}
+        listContainerClassName="items row"
+        includeInputFilter={true}
+        inputFilterPlaceholder="Begin typing to filter by name or department..."
+        renderItem={(service) => (
+          <div key={service.id} className="col-lg-4 col-md-6 col-sm-6 d-flex">
+            <ServiceLink {...service} />
+          </div>
+        )}
+        renderListHeader={(count) => (
+          <div className="row">
+            <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
+              <ListLegend
+                icon="fas fa-star"
+                text="- Indicates a Most Popular Service"
+              />
+            </div>
+            <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
+              <p style={{ margin: 0 }}>{count} results</p>
+            </div>
+          </div>
+        )}
+      />
     </div>
   );
 }
