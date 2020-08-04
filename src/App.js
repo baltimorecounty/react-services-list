@@ -37,7 +37,7 @@ function App() {
               />
             </div>
             <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
-              <p style={{ margin: 0 }}>{count} results</p>
+              <p style={{ margin: 0 }}>Viewing {count} results</p>
             </div>
           </div>
         )}
