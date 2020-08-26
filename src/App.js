@@ -22,6 +22,7 @@ function App() {
         apiEndpoint={getValue("apiRoot")}
         listContainerClassName="items row"
         includeInputFilter={true}
+        searchCategory ="Services"
         inputFilterPlaceholder="Begin typing to filter by name or department..."
         renderItem={(service) => (
           <div key={service.id} className="col-lg-4 col-md-6 col-sm-6 d-flex">
@@ -37,7 +38,7 @@ function App() {
               />
             </div>
             <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
-              <p style={{ margin: 0 }}>{count} results</p>
+              <p style={{ margin: 0 }}>Viewing {count} results</p>
             </div>
           </div>
         )}
