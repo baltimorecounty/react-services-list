@@ -22,7 +22,8 @@ function App() {
         apiEndpoint={getValue("apiRoot")}
         listContainerClassName="items row"
         includeInputFilter={true}
-        searchCategory ="Services"
+        includeClearButton={true}
+        searchCategory="Services"
         inputFilterPlaceholder="Begin typing to filter by name or department..."
         renderItem={(service) => (
           <div key={service.id} className="col-lg-4 col-md-6 col-sm-6 d-flex">
