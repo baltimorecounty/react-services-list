@@ -23,6 +23,7 @@ function App() {
         listContainerClassName="items row"
         includeInputFilter={true}
         includeClearButton={true}
+        includeDateFilter={false}
         searchCategory="Services"
         inputFilterPlaceholder="Begin typing to filter by name or department..."
         renderItem={(service) => (
