@@ -5,8 +5,6 @@ const Styles = {
 };
 
 const NoResultsMessage = () => {
-  //var filter = document.getElementsByClassName("dg_search-input");
-
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const filter = urlParams.get("filter");
