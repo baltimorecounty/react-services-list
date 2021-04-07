@@ -7,6 +7,7 @@ import ListLegend from "./components/ListLegend";
 import React from "react";
 import { Run } from "./Startup";
 import ServiceLink from "./components/ServiceLink";
+import { NoResultsMessage } from "./common/Message";
 
 const { getValue } = Config;
 
@@ -32,16 +33,24 @@ function App() {
           </div>
         )}
         renderListHeader={(count) => (
-          <div className="row">
-            <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
-              <ListLegend
-                icon="fas fa-star"
-                text="- Indicates a Most Popular Service"
-              />
+          <div>
+            <div className="row">
+              <div className="col-md-6 col-xs-12 order-xs-first order-md-last">
+                <ListLegend
+                  icon="fas fa-star"
+                  text="- Indicates a Most Popular Service"
+                />
+              </div>
+              <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
+                <p style={{ margin: 0 }}>Viewing {count} results</p>
+              </div>
             </div>
-            <div className="col-md-6 col-xs-12 order-xs-last order-md-first ">
-              <p style={{ margin: 0 }}>Viewing {count} results</p>
-            </div>
+
+            {count === 0 ? (
+              <div>
+                <NoResultsMessage />
+              </div>
+            ) : null}
           </div>
         )}
       />
