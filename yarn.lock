@@ -1532,9 +1532,9 @@
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@baltimorecounty/javascript-utilities/-/javascript-utilities-1.0.7.tgz#41f0aa86a926cce4a3fe20119e569a88a0bfe8c5"
 
-"@baltimorecounty/react-filter-list@^1.0.42":
-  version "1.0.43"
-  resolved "https://registry.yarnpkg.com/@baltimorecounty/react-filter-list/-/react-filter-list-1.0.43.tgz#6c85358170ac0385fbf789d90d23fa080013cc50"
+"@baltimorecounty/react-filter-list@^1.0.45":
+  version "1.0.45"
+  resolved "https://registry.yarnpkg.com/@baltimorecounty/react-filter-list/-/react-filter-list-1.0.45.tgz#c4903637af54dc4e2da3c1762bac10182c4a2302"
   dependencies:
     "@baltimorecounty/dotgov-components" "^1.0.18"
     "@rollup/plugin-json" "^4.1.0"
@@ -6548,8 +6548,8 @@ memory-fs@^0.5.0:
     readable-stream "^2.0.1"
 
 merge-deep@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/merge-deep/-/merge-deep-3.0.2.tgz#f39fa100a4f1bd34ff29f7d2bf4508fbb8d83ad2"
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/merge-deep/-/merge-deep-3.0.3.tgz#1a2b2ae926da8b2ae93a0ac15d90cd1922766003"
   dependencies:
     arr-union "^3.1.0"
     clone-deep "^0.2.4"
