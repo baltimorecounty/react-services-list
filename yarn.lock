@@ -1532,9 +1532,9 @@
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@baltimorecounty/javascript-utilities/-/javascript-utilities-1.0.7.tgz#41f0aa86a926cce4a3fe20119e569a88a0bfe8c5"
 
-"@baltimorecounty/react-filter-list@^1.0.42":
-  version "1.0.43"
-  resolved "https://registry.yarnpkg.com/@baltimorecounty/react-filter-list/-/react-filter-list-1.0.43.tgz#6c85358170ac0385fbf789d90d23fa080013cc50"
+"@baltimorecounty/react-filter-list@^1.0.45":
+  version "1.0.45"
+  resolved "https://registry.yarnpkg.com/@baltimorecounty/react-filter-list/-/react-filter-list-1.0.45.tgz#c4903637af54dc4e2da3c1762bac10182c4a2302"
   dependencies:
     "@baltimorecounty/dotgov-components" "^1.0.18"
     "@rollup/plugin-json" "^4.1.0"
@@ -8198,8 +8198,8 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
 
 query-string@^4.1.0:
   version "4.3.4"
